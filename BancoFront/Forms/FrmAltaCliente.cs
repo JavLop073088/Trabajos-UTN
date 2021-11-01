@@ -66,7 +66,7 @@ namespace AppBanco.Forms
 
         private void dgvCuentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvCuentas.CurrentCell.ColumnIndex == 5)
+            if (dgvCuentas.CurrentCell.ColumnIndex == 6)
             {
                 oCliente.QuitarCuenta(dgvCuentas.CurrentRow.Index);
                 dgvCuentas.Rows.Remove(dgvCuentas.CurrentRow);
