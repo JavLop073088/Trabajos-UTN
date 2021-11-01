@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppBanco.Dominio
+namespace BancoBack.Dominio
 {
     public class TipoCuenta
     {

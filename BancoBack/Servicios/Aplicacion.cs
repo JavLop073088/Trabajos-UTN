@@ -1,5 +1,5 @@
 ﻿using AppBanco.Acceso_a_Datos;
-using AppBanco.Dominio;
+using BancoBack.Dominio;
 using BancoBack.Servicios;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,13 @@ namespace AppBanco.Servicios
         {
             return dao.GetTipoCuentas();
         }
-     
+
+        public List<Revenue> ConsultarGraficoTorta()
+        {
+            return dao.GetGraficoTorta();
+        }
+
+
         public int ProximoNroCliente()
         {
             return dao.NextNumCliente();

@@ -87,6 +87,16 @@ BEGIN
 		VALUES (@cbuCta, @nroClte, @saldoCta, @idTipoCta, @ultMov)
 END
 -------------------------------------------------------
+CREATE PROCEDURE SP_GRAFICO_TORTA
+AS
+BEGIN
+	SELECT
+		YEAR(C.ultimo_mov) AS 'years',
+		COUNT(C.id_tipo_cuenta) AS 'total'
+	FROM cuentas C
+	GROUP BY YEAR(C.ultimo_mov)
+END
+-------------------------------------------------------
 
 select * from clientes
 select * from cuentas

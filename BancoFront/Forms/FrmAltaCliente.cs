@@ -1,4 +1,4 @@
-﻿using AppBanco.Dominio;
+﻿using BancoBack.Dominio;
 using BancoFront.Client;
 using Newtonsoft.Json;
 using System;

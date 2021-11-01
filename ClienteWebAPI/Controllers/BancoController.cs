@@ -1,6 +1,6 @@
 ﻿using AppBanco.Acceso_a_Datos;
-using AppBanco.Dominio;
 using AppBanco.Servicios;
+using BancoBack.Dominio;
 using BancoBack.Servicios;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +31,7 @@ namespace BancoWebAPI.Controllers
         [HttpGet("cuentasTorta")]
         public IActionResult GetCuentasTorta()
         {
-            return Ok(app.ConsultarTipos());
+            return Ok(app.ConsultarGraficoTorta());
         }
 
         [HttpGet("numero")]

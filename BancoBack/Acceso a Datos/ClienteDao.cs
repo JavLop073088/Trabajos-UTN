@@ -1,4 +1,4 @@
-﻿using AppBanco.Dominio;
+﻿using BancoBack.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,6 +27,22 @@ namespace AppBanco.Acceso_a_Datos
             }
             return lst;
         }     
+
+        public List<Revenue> GetGraficoTorta()
+        {
+            List<Revenue> lst = new List<Revenue>();
+            DataTable t = HelperDao.ObtenerInstancia().ConsultaTabla("SP_GRAFICO_TORTA");
+
+            foreach (DataRow row in t.Rows)
+            {
+                Revenue oIngresos = new Revenue();
+                oIngresos.Year = Convert.ToInt32(row["years"].ToString());
+                oIngresos.Value = Convert.ToInt32(row["total"].ToString());
+
+                lst.Add(oIngresos);
+            }
+            return lst;
+        }
 
         public bool SaveCliente(Cliente oCliente)
         {

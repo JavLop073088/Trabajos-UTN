@@ -1,4 +1,4 @@
-﻿using AppBanco.Dominio;
+﻿using BancoBack.Dominio;
 using BancoFront;
 using BancoFront.Client;
 using LiveCharts;
@@ -135,38 +135,7 @@ namespace AppBanco.Forms
         {
             Func<ChartPoint, string> labelPoint = chartpoint => string.Format("{0} ({1:P})", chartpoint.Y, chartpoint.Participation);
             pieChart2.LegendLocation = LegendLocation.Bottom;
-            //List<Revenue> lst = new List<Revenue>();
-            DataTable table = new DataTable();
-
-            SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=pruebagraficos;Integrated Security=True");
-
-            try
-            {
-                cnn.Open();
-
-                SqlCommand cmd = new SqlCommand("SELECT * FROM anios", cnn);
-                cmd.CommandType = CommandType.Text;
-
-
-                table.Load(cmd.ExecuteReader());
-                //mappear los registros como objetos del dominio:
-
-                foreach (DataRow row in table.Rows)
-                {
-                    //Por cada registro creamos un objeto del dominio
-                    Revenue oIngresosTorta = new Revenue();
-                    oIngresosTorta.Year = Convert.ToInt32(row["years"].ToString());
-                    oIngresosTorta.Value = Convert.ToDouble(row["total"].ToString());
-
-                    lst.Add(oIngresosTorta);
-                }
-
-                cnn.Close();
-            }
-            catch (SqlException)
-            {
-                lst = null;
-            }
+            
 
             SeriesCollection series = new SeriesCollection();
             foreach (var obj in lst)
@@ -175,8 +144,5 @@ namespace AppBanco.Forms
             }
             pieChart2.Series = series;
         }
-
-
-        
     }
 }

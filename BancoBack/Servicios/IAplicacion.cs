@@ -1,4 +1,5 @@
-﻿using AppBanco.Dominio;
+﻿
+using BancoBack.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace BancoBack.Servicios
     public interface IAplicacion
     {
         public List<TipoCuenta> ConsultarTipos();
+
+        public List<Revenue> ConsultarGraficoTorta();
 
         public bool RegistrarCliente(Cliente oCliente);
 

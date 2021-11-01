@@ -56,6 +56,7 @@ namespace AppBanco.Forms
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -211,6 +212,7 @@ namespace AppBanco.Forms
             // panel8
             // 
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel8.Controls.Add(this.label12);
             this.panel8.Controls.Add(this.pieChart2);
             this.panel8.Controls.Add(this.pieChart1);
             this.panel8.Location = new System.Drawing.Point(724, 3);
@@ -220,7 +222,7 @@ namespace AppBanco.Forms
             // 
             // pieChart2
             // 
-            this.pieChart2.Location = new System.Drawing.Point(49, 43);
+            this.pieChart2.Location = new System.Drawing.Point(61, 101);
             this.pieChart2.Name = "pieChart2";
             this.pieChart2.Size = new System.Drawing.Size(360, 399);
             this.pieChart2.TabIndex = 1;
@@ -397,6 +399,17 @@ namespace AppBanco.Forms
             this.label2.TabIndex = 0;
             this.label2.Text = "Cantidad de Clientes";
             // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(88, 40);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(305, 25);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Cantidad de Cuentas por Año:";
+            // 
             // FrmGrafico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -415,6 +428,7 @@ namespace AppBanco.Forms
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -457,5 +471,6 @@ namespace AppBanco.Forms
         private System.Windows.Forms.Panel panel8;
         private LiveCharts.WinForms.PieChart pieChart1;
         private LiveCharts.WinForms.PieChart pieChart2;
+        private System.Windows.Forms.Label label12;
     }
 }
