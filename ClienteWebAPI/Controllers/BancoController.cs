@@ -28,6 +28,12 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ConsultarTipos());
         }
 
+        [HttpGet("cuentasTorta")]
+        public IActionResult GetCuentasTorta()
+        {
+            return Ok(app.ConsultarTipos());
+        }
+
         [HttpGet("numero")]
         public IActionResult GetNumero()
         {

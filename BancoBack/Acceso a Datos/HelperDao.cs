@@ -21,7 +21,7 @@ namespace AppBanco.Acceso_a_Datos
 
         private HelperDao()
         {
-            cadenaConexion = @"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True";
+            cadenaConexion = @"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True";
             //cadenaConexion = Properties.Resources.strConexion; 
         }
 
