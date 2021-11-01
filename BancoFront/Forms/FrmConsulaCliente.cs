@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppBanco.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace AppBanco.Forms
         public FrmConsulaCliente()
         {
             InitializeComponent();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            List<Parametro> filtros = new List<Parametro>;
         }
     }
 }
