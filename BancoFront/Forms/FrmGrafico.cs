@@ -119,14 +119,18 @@ namespace AppBanco.Forms
             cartesianChart1.Series = series;
         }
 
+        //-------------------------------------------------------------------------------------------
+        //Métodos HttpClient:
         private async Task CargarTortaAsync()
         {
-            string url = "https://localhost:44317/api/Banco/tipos";
+            string url = "https://localhost:44317/api/Banco/cuentasTorta";
             var data = await ClienteSingleton.GetInstance().GetAsync(url);
             List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
             MostrarGraficoTorta(lst);
         }
 
+        //-------------------------------------------------------------------------------------------
+        //Métodos Auxiliares:
         private void MostrarGraficoTorta(List<Revenue> lst)
         {
             Func<ChartPoint, string> labelPoint = chartpoint => string.Format("{0} ({1:P})", chartpoint.Y, chartpoint.Participation);
