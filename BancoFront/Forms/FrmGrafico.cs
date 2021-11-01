@@ -24,7 +24,7 @@ namespace AppBanco.Forms
             InitializeComponent();
         }
         
-        private void FrmGrafico_Load(object sender, EventArgs e)
+        private async void FrmGrafico_Load(object sender, EventArgs e)
         {
             
             cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
@@ -43,7 +43,7 @@ namespace AppBanco.Forms
 
 
             // Grafico Torta
-            CargarTortaAsync();
+            await CargarTortaAsync();
         }
 
         private void btnConsultar_Click_1(object sender, EventArgs e)
