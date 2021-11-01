@@ -157,5 +157,25 @@ namespace AppBanco.Forms
                 this.Dispose();
             }
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Desea Salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void transaccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportes reporte = new FrmReportes();
+            reporte.ShowDialog();
+        }
     }
 }

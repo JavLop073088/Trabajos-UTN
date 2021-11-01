@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace AppBanco.Forms
 {
-    public partial class FrmIntegrantes : Form
+    public partial class FrmReportes : Form
     {
-        public FrmIntegrantes()
+        public FrmReportes()
         {
             InitializeComponent();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void FrmReportes_Load(object sender, EventArgs e)
         {
-            this.Dispose();
+
         }
 
-        private void FrmIntegrantes_Load(object sender, EventArgs e)
+        private void asyncWaitMessage1_Load(object sender, EventArgs e)
         {
 
         }
