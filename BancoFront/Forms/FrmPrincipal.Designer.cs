@@ -207,7 +207,7 @@ namespace AppBanco.Forms
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 46);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(6);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(520, 1526);
             this.panelMenu.TabIndex = 1;
@@ -224,7 +224,7 @@ namespace AppBanco.Forms
             this.btnGraficos.IconSize = 32;
             this.btnGraficos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGraficos.Location = new System.Drawing.Point(0, 845);
-            this.btnGraficos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnGraficos.Margin = new System.Windows.Forms.Padding(6);
             this.btnGraficos.Name = "btnGraficos";
             this.btnGraficos.Padding = new System.Windows.Forms.Padding(17, 0, 33, 0);
             this.btnGraficos.Size = new System.Drawing.Size(520, 119);
@@ -247,7 +247,7 @@ namespace AppBanco.Forms
             this.btnAjustesCuenta.IconSize = 32;
             this.btnAjustesCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAjustesCuenta.Location = new System.Drawing.Point(0, 726);
-            this.btnAjustesCuenta.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAjustesCuenta.Margin = new System.Windows.Forms.Padding(6);
             this.btnAjustesCuenta.Name = "btnAjustesCuenta";
             this.btnAjustesCuenta.Padding = new System.Windows.Forms.Padding(17, 0, 33, 0);
             this.btnAjustesCuenta.Size = new System.Drawing.Size(520, 119);
@@ -270,7 +270,7 @@ namespace AppBanco.Forms
             this.btnCargarCliente.IconSize = 32;
             this.btnCargarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCargarCliente.Location = new System.Drawing.Point(0, 607);
-            this.btnCargarCliente.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCargarCliente.Margin = new System.Windows.Forms.Padding(6);
             this.btnCargarCliente.Name = "btnCargarCliente";
             this.btnCargarCliente.Padding = new System.Windows.Forms.Padding(17, 0, 33, 0);
             this.btnCargarCliente.Size = new System.Drawing.Size(520, 119);
@@ -293,7 +293,7 @@ namespace AppBanco.Forms
             this.btnConsultarClientes.IconSize = 32;
             this.btnConsultarClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarClientes.Location = new System.Drawing.Point(0, 488);
-            this.btnConsultarClientes.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnConsultarClientes.Margin = new System.Windows.Forms.Padding(6);
             this.btnConsultarClientes.Name = "btnConsultarClientes";
             this.btnConsultarClientes.Padding = new System.Windows.Forms.Padding(17, 0, 33, 0);
             this.btnConsultarClientes.Size = new System.Drawing.Size(520, 119);
@@ -316,7 +316,7 @@ namespace AppBanco.Forms
             this.btnHome.IconSize = 32;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.Location = new System.Drawing.Point(0, 369);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(6);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(17, 0, 33, 0);
             this.btnHome.Size = new System.Drawing.Size(520, 119);
@@ -332,7 +332,7 @@ namespace AppBanco.Forms
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(6);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(520, 369);
             this.panelLogo.TabIndex = 0;
@@ -342,7 +342,7 @@ namespace AppBanco.Forms
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::BancoFront.Properties.Resources.pngwing_com;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 369);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -358,7 +358,7 @@ namespace AppBanco.Forms
             this.panelTitulo.Controls.Add(this.iconFormActual);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(520, 46);
-            this.panelTitulo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelTitulo.Margin = new System.Windows.Forms.Padding(6);
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(2364, 160);
             this.panelTitulo.TabIndex = 2;
@@ -385,7 +385,7 @@ namespace AppBanco.Forms
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 52;
             this.iconPictureBox1.Location = new System.Drawing.Point(2132, 47);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(52, 64);
             this.iconPictureBox1.TabIndex = 2;
@@ -411,7 +411,7 @@ namespace AppBanco.Forms
             this.iconFormActual.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconFormActual.IconSize = 52;
             this.iconFormActual.Location = new System.Drawing.Point(37, 47);
-            this.iconFormActual.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.iconFormActual.Margin = new System.Windows.Forms.Padding(6);
             this.iconFormActual.Name = "iconFormActual";
             this.iconFormActual.Size = new System.Drawing.Size(52, 64);
             this.iconFormActual.TabIndex = 0;
@@ -421,7 +421,7 @@ namespace AppBanco.Forms
             // 
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(520, 206);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(6);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(2364, 1366);
             this.panelDesktop.TabIndex = 3;
@@ -607,7 +607,7 @@ namespace AppBanco.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AppBanco";

@@ -65,20 +65,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dataSetCartera.Designer.cs">
+    <Compile Include="dsClientes2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dataSetCartera.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dataSetClientes.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataSetClientes.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dataSetTipoCuenta.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataSetTipoCuenta.xsd</DependentUpon>
+      <DependentUpon>dsClientes2.xsd</DependentUpon>
     </Compile>
     <Compile Include="FrmReportes.cs">
       <SubType>Form</SubType>
@@ -101,39 +91,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="reporteBanco.rdlc" />
-    <None Include="dataSetCartera.xsc">
-      <DependentUpon>dataSetCartera.xsd</DependentUpon>
+    <EmbeddedResource Include="rpteBanco.rdlc" />
+    <None Include="dsClientes2.xsc">
+      <DependentUpon>dsClientes2.xsd</DependentUpon>
     </None>
-    <None Include="dataSetCartera.xsd">
+    <None Include="dsClientes2.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dataSetCartera.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsClientes2.Designer.cs</LastGenOutput>
     </None>
-    <None Include="dataSetCartera.xss">
-      <DependentUpon>dataSetCartera.xsd</DependentUpon>
-    </None>
-    <None Include="dataSetClientes.xsc">
-      <DependentUpon>dataSetClientes.xsd</DependentUpon>
-    </None>
-    <None Include="dataSetClientes.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dataSetClientes.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="dataSetClientes.xss">
-      <DependentUpon>dataSetClientes.xsd</DependentUpon>
-    </None>
-    <None Include="dataSetTipoCuenta.xsc">
-      <DependentUpon>dataSetTipoCuenta.xsd</DependentUpon>
-    </None>
-    <None Include="dataSetTipoCuenta.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dataSetTipoCuenta.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="dataSetTipoCuenta.xss">
-      <DependentUpon>dataSetTipoCuenta.xsd</DependentUpon>
+    <None Include="dsClientes2.xss">
+      <DependentUpon>dsClientes2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace Reportes
 {
     public partial class FrmReportes : Form
@@ -18,43 +19,35 @@ namespace Reportes
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FrmReportes_Load(object sender, EventArgs e)
         {
 
-            this.reportViewer1.RefreshReport();
+            this.rvClientes.RefreshReport();
         }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-
             SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-4IJU6EJ\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("SP_REPORTE_CUENTAS2", cnn);
-            
-            cnn.Open();
+            SqlCommand cmd = new SqlCommand("SP_REPORTE_CUENTAS", cnn);
 
-            cmd.Parameters.AddWithValue("@fecha_desde", dateTimePicker1.Value);   //lo saca del dateTimePicker y se lo asigna al parametro
-            cmd.Parameters.AddWithValue("@fecha_hasta", dateTimePicker2.Value);
+            cnn.Open();
             cmd.CommandType = CommandType.StoredProcedure;
+
+            if (chkClientesNoActivos.Checked == true)
+                cmd.Parameters.AddWithValue("@baja", "S");
+            else
+                cmd.Parameters.AddWithValue("@baja", "N");
 
             DataTable tabla = new DataTable();
             tabla.Load(cmd.ExecuteReader());
 
-            reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("dataSetCartera", tabla));
-            reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("dataSetTipoCuenta", tabla));
-            reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("dataSetClientes", tabla));
+            rvClientes.LocalReport.DataSources.Clear();
+            rvClientes.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", tabla));
+            rvClientes.RefreshReport();
 
-            reportViewer1.RefreshReport();
-
-            
             cnn.Close();
-        }
-
-
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

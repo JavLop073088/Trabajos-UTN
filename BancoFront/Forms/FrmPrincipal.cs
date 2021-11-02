@@ -176,7 +176,12 @@ namespace AppBanco.Forms
 
         private void transaccionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            //Error al tratar de referenciar el Form:
+            //The ReportViewer controls pre-date .NET Core and there are several missing capabilities that the ReportViewer requires,
+            //unfortunately at this time this scenario is not supported.
+            //FrmReportes reporte = new FrmReportes ();
+            //reporte.ShowDialog();
+
         }
     }
 }

@@ -30,134 +30,107 @@ namespace Reportes
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource8 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource9 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataSetCartera = new Reportes.dataSetCartera();
-            this.dtCarteraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetTipoCuenta = new Reportes.dataSetTipoCuenta();
-            this.dtTotalesPorTipoCtaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetClientes = new Reportes.dataSetClientes();
-            this.dtClientesActivosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCartera)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCarteraBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoCuenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtTotalesPorTipoCtaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtClientesActivosBindingSource)).BeginInit();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportes));
+            this.dtClientes2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsClientes2 = new Reportes.dsClientes2();
+            this.chkClientesNoActivos = new System.Windows.Forms.CheckBox();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
+            this.rvClientes = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.gbClientes = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dtClientes2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsClientes2)).BeginInit();
+            this.gbClientes.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtClientes2BindingSource
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(36, 50);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtClientes2BindingSource.DataMember = "dtClientes2";
+            this.dtClientes2BindingSource.DataSource = this.dsClientes2;
             // 
-            // dateTimePicker2
+            // dsClientes2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(271, 50);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 31);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dsClientes2.DataSetName = "dsClientes2";
+            this.dsClientes2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // reportViewer1
+            // chkClientesNoActivos
             // 
-            reportDataSource7.Name = "dataSetCartera";
-            reportDataSource7.Value = this.dtCarteraBindingSource;
-            reportDataSource8.Name = "dataSetTipoCuenta";
-            reportDataSource8.Value = this.dtTotalesPorTipoCtaBindingSource;
-            reportDataSource9.Name = "dataSetClientes";
-            reportDataSource9.Value = this.dtClientesActivosBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource7);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource8);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource9);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Reportes.reporteBanco.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(79, 204);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1374, 787);
-            this.reportViewer1.TabIndex = 2;
-            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            this.chkClientesNoActivos.AutoSize = true;
+            this.chkClientesNoActivos.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkClientesNoActivos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkClientesNoActivos.Location = new System.Drawing.Point(30, 57);
+            this.chkClientesNoActivos.Name = "chkClientesNoActivos";
+            this.chkClientesNoActivos.Size = new System.Drawing.Size(218, 34);
+            this.chkClientesNoActivos.TabIndex = 0;
+            this.chkClientesNoActivos.Text = "Clientes no activos";
+            this.chkClientesNoActivos.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnGenerarReporte
             // 
-            this.button1.Location = new System.Drawing.Point(565, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(254, 68);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Generar Reporte";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGenerarReporte.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnGenerarReporte.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarReporte.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnGenerarReporte.Location = new System.Drawing.Point(47, 121);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(209, 73);
+            this.btnGenerarReporte.TabIndex = 1;
+            this.btnGenerarReporte.Text = "Generar reporte";
+            this.btnGenerarReporte.UseVisualStyleBackColor = false;
+            this.btnGenerarReporte.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataSetCartera
+            // rvClientes
             // 
-            this.dataSetCartera.DataSetName = "dataSetCartera";
-            this.dataSetCartera.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.dtClientes2BindingSource;
+            this.rvClientes.LocalReport.DataSources.Add(reportDataSource1);
+            this.rvClientes.LocalReport.ReportEmbeddedResource = "Reportes.rpteBanco.rdlc";
+            this.rvClientes.Location = new System.Drawing.Point(298, 1);
+            this.rvClientes.Name = "rvClientes";
+            this.rvClientes.ServerReport.BearerToken = null;
+            this.rvClientes.Size = new System.Drawing.Size(1546, 1167);
+            this.rvClientes.TabIndex = 2;
             // 
-            // dtCarteraBindingSource
+            // gbClientes
             // 
-            this.dtCarteraBindingSource.DataMember = "dtCartera";
-            this.dtCarteraBindingSource.DataSource = this.dataSetCartera;
-            // 
-            // dataSetTipoCuenta
-            // 
-            this.dataSetTipoCuenta.DataSetName = "dataSetTipoCuenta";
-            this.dataSetTipoCuenta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtTotalesPorTipoCtaBindingSource
-            // 
-            this.dtTotalesPorTipoCtaBindingSource.DataMember = "dtTotalesPorTipoCta";
-            this.dtTotalesPorTipoCtaBindingSource.DataSource = this.dataSetTipoCuenta;
-            // 
-            // dataSetClientes
-            // 
-            this.dataSetClientes.DataSetName = "dataSetClientes";
-            this.dataSetClientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtClientesActivosBindingSource
-            // 
-            this.dtClientesActivosBindingSource.DataMember = "dtClientesActivos";
-            this.dtClientesActivosBindingSource.DataSource = this.dataSetClientes;
+            this.gbClientes.Controls.Add(this.btnGenerarReporte);
+            this.gbClientes.Controls.Add(this.chkClientesNoActivos);
+            this.gbClientes.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gbClientes.Location = new System.Drawing.Point(1, 1);
+            this.gbClientes.Name = "gbClientes";
+            this.gbClientes.Size = new System.Drawing.Size(291, 224);
+            this.gbClientes.TabIndex = 3;
+            this.gbClientes.TabStop = false;
+            this.gbClientes.Text = "Mostrar Clientes";
             // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1517, 1035);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.reportViewer1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.ClientSize = new System.Drawing.Size(1840, 1168);
+            this.Controls.Add(this.gbClientes);
+            this.Controls.Add(this.rvClientes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReportes";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCartera)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCarteraBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoCuenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtTotalesPorTipoCtaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtClientesActivosBindingSource)).EndInit();
+            this.Text = "Reportes";
+            this.Load += new System.EventHandler(this.FrmReportes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtClientes2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsClientes2)).EndInit();
+            this.gbClientes.ResumeLayout(false);
+            this.gbClientes.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.BindingSource dtCarteraBindingSource;
-        private dataSetCartera dataSetCartera;
-        private System.Windows.Forms.BindingSource dtTotalesPorTipoCtaBindingSource;
-        private dataSetTipoCuenta dataSetTipoCuenta;
-        private System.Windows.Forms.BindingSource dtClientesActivosBindingSource;
-        private dataSetClientes dataSetClientes;
+        private System.Windows.Forms.CheckBox chkClientesNoActivos;
+        private System.Windows.Forms.Button btnGenerarReporte;
+        private Microsoft.Reporting.WinForms.ReportViewer rvClientes;
+        private System.Windows.Forms.BindingSource dtClientes2BindingSource;
+        private dsClientes2 dsClientes2;
+        private System.Windows.Forms.GroupBox gbClientes;
     }
 }
-
