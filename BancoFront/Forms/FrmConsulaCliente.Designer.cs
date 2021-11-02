@@ -340,15 +340,15 @@ namespace AppBanco.Forms
             // 
             // FrmConsulaCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 828);
+            this.ClientSize = new System.Drawing.Size(1750, 1325);
             this.Controls.Add(this.gbResultados);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.gbFiltros);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "FrmConsulaCliente";
             this.Text = "Consultar Clientes";
             this.gbFiltros.ResumeLayout(false);
