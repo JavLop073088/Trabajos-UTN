@@ -1,4 +1,5 @@
 ﻿using BancoBack.Dominio;
+using BancoBack.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,6 @@ namespace AppBanco.Acceso_a_Datos
 
         public int NextNumCliente();
 
-        
+        public List<Cliente> GetByFilters(List<Parametro> criterios);
     }
 }

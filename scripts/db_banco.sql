@@ -116,6 +116,7 @@ DECLARE @resultado int
 EXEC SP_LOGIN_ADMINS 'CaroKuba', '112927', @resultado output
 SELECT @resultado
 -------------------------------------------------------
+--Cambio Fabri 01/11
 CREATE PROCEDURE SP_GRAFICO_TORTA
 AS
 BEGIN
@@ -126,7 +127,32 @@ BEGIN
 	GROUP BY YEAR(C.ultimo_mov)
 END
 -------------------------------------------------------
-
+--Cambios Javi 02/11
+CREATE PROCEDURE SP_CONSULTAR_CLIENTES
+	@nroClte int,
+	@nomClte varchar(50),
+	@apeClte varchar(50),
+	@dniClte int,
+	@dato_baja varchar(4)
+AS
+BEGIN
+	IF(@dato_baja = 'N')
+		SELECT * FROM clientes c
+		WHERE ( (c.nro_cliente = @nroClte) 
+		OR (c.nom_cliente like '%'+@nomClte+'%')
+		OR (c.ape_cliente like '%'+@apeClte+'%')
+		OR (c.dni_cliente = @dniClte) )
+		AND (fecha_baja is null)
+	else
+		SELECT * FROM clientes c
+		WHERE ( (c.nro_cliente = @nroClte) 
+		OR (c.nom_cliente like '%'+@nomClte+'%')
+		OR (c.ape_cliente like '%'+@apeClte+'%')
+		OR (c.dni_cliente = @dniClte) )
+		AND (fecha_baja is not null)
+	
+END
+-------------------------------------------------------
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas

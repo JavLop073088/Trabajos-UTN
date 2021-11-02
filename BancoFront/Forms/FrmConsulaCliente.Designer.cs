@@ -32,14 +32,14 @@ namespace AppBanco.Forms
         private void InitializeComponent()
         {
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.txtNroClte = new BancoFront.Forms.Componentes.RJTextBox();
+            this.txtNroDni = new BancoFront.Forms.Componentes.RJTextBox();
+            this.txtApe = new BancoFront.Forms.Componentes.RJTextBox();
+            this.txtNom = new BancoFront.Forms.Componentes.RJTextBox();
+            this.txtNumCl = new BancoFront.Forms.Componentes.RJTextBox();
             this.lblNroClte = new System.Windows.Forms.Label();
             this.lblApeClte = new System.Windows.Forms.Label();
-            this.txtAPellidoClte = new BancoFront.Forms.Componentes.RJTextBox();
             this.lblNomClte = new System.Windows.Forms.Label();
-            this.txtNombreClte = new BancoFront.Forms.Componentes.RJTextBox();
             this.btnConsultar = new FontAwesome.Sharp.IconButton();
-            this.txtDNI = new BancoFront.Forms.Componentes.RJTextBox();
             this.chkBaja = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbResultados = new System.Windows.Forms.GroupBox();
@@ -61,14 +61,14 @@ namespace AppBanco.Forms
             // gbFiltros
             // 
             this.gbFiltros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gbFiltros.Controls.Add(this.txtNroClte);
+            this.gbFiltros.Controls.Add(this.txtNroDni);
+            this.gbFiltros.Controls.Add(this.txtApe);
+            this.gbFiltros.Controls.Add(this.txtNom);
+            this.gbFiltros.Controls.Add(this.txtNumCl);
             this.gbFiltros.Controls.Add(this.lblNroClte);
             this.gbFiltros.Controls.Add(this.lblApeClte);
-            this.gbFiltros.Controls.Add(this.txtAPellidoClte);
             this.gbFiltros.Controls.Add(this.lblNomClte);
-            this.gbFiltros.Controls.Add(this.txtNombreClte);
             this.gbFiltros.Controls.Add(this.btnConsultar);
-            this.gbFiltros.Controls.Add(this.txtDNI);
             this.gbFiltros.Controls.Add(this.chkBaja);
             this.gbFiltros.Controls.Add(this.label3);
             this.gbFiltros.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -81,28 +81,82 @@ namespace AppBanco.Forms
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Criterios de Busqueda";
             // 
-            // txtNroClte
+            // txtNroDni
             // 
-            this.txtNroClte.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNroClte.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNroClte.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNroClte.BorderSize = 2;
-            this.txtNroClte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNroClte.Location = new System.Drawing.Point(157, 54);
-            this.txtNroClte.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtNroClte.Multiline = false;
-            this.txtNroClte.Name = "txtNroClte";
-            this.txtNroClte.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
-            this.txtNroClte.PasswordChar = false;
-            this.txtNroClte.Size = new System.Drawing.Size(71, 39);
-            this.txtNroClte.TabIndex = 18;
-            this.txtNroClte.Texts = "";
-            this.txtNroClte.UnderlinedStyle = true;
+            this.txtNroDni.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNroDni.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNroDni.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtNroDni.BorderSize = 2;
+            this.txtNroDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNroDni.Location = new System.Drawing.Point(554, 47);
+            this.txtNroDni.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNroDni.Multiline = false;
+            this.txtNroDni.Name = "txtNroDni";
+            this.txtNroDni.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtNroDni.PasswordChar = false;
+            this.txtNroDni.Size = new System.Drawing.Size(218, 39);
+            this.txtNroDni.TabIndex = 23;
+            this.txtNroDni.Texts = "";
+            this.txtNroDni.UnderlinedStyle = true;
+            // 
+            // txtApe
+            // 
+            this.txtApe.BackColor = System.Drawing.SystemColors.Control;
+            this.txtApe.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApe.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtApe.BorderSize = 2;
+            this.txtApe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtApe.Location = new System.Drawing.Point(554, 145);
+            this.txtApe.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtApe.Multiline = false;
+            this.txtApe.Name = "txtApe";
+            this.txtApe.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtApe.PasswordChar = false;
+            this.txtApe.Size = new System.Drawing.Size(218, 39);
+            this.txtApe.TabIndex = 22;
+            this.txtApe.Texts = "";
+            this.txtApe.UnderlinedStyle = true;
+            // 
+            // txtNom
+            // 
+            this.txtNom.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNom.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNom.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtNom.BorderSize = 2;
+            this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNom.Location = new System.Drawing.Point(147, 145);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNom.Multiline = false;
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtNom.PasswordChar = false;
+            this.txtNom.Size = new System.Drawing.Size(218, 39);
+            this.txtNom.TabIndex = 21;
+            this.txtNom.Texts = "";
+            this.txtNom.UnderlinedStyle = true;
+            // 
+            // txtNumCl
+            // 
+            this.txtNumCl.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumCl.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNumCl.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtNumCl.BorderSize = 2;
+            this.txtNumCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNumCl.Location = new System.Drawing.Point(147, 49);
+            this.txtNumCl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNumCl.Multiline = false;
+            this.txtNumCl.Name = "txtNumCl";
+            this.txtNumCl.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtNumCl.PasswordChar = false;
+            this.txtNumCl.Size = new System.Drawing.Size(74, 39);
+            this.txtNumCl.TabIndex = 20;
+            this.txtNumCl.Texts = "";
+            this.txtNumCl.UnderlinedStyle = true;
             // 
             // lblNroClte
             // 
             this.lblNroClte.AutoSize = true;
-            this.lblNroClte.Location = new System.Drawing.Point(22, 63);
+            this.lblNroClte.Location = new System.Drawing.Point(22, 56);
             this.lblNroClte.Name = "lblNroClte";
             this.lblNroClte.Size = new System.Drawing.Size(129, 25);
             this.lblNroClte.TabIndex = 19;
@@ -111,56 +165,20 @@ namespace AppBanco.Forms
             // lblApeClte
             // 
             this.lblApeClte.AutoSize = true;
-            this.lblApeClte.Location = new System.Drawing.Point(460, 159);
+            this.lblApeClte.Location = new System.Drawing.Point(460, 152);
             this.lblApeClte.Name = "lblApeClte";
             this.lblApeClte.Size = new System.Drawing.Size(88, 25);
             this.lblApeClte.TabIndex = 17;
             this.lblApeClte.Text = "Apellido:";
             // 
-            // txtAPellidoClte
-            // 
-            this.txtAPellidoClte.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAPellidoClte.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtAPellidoClte.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtAPellidoClte.BorderSize = 2;
-            this.txtAPellidoClte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAPellidoClte.Location = new System.Drawing.Point(554, 152);
-            this.txtAPellidoClte.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtAPellidoClte.Multiline = false;
-            this.txtAPellidoClte.Name = "txtAPellidoClte";
-            this.txtAPellidoClte.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
-            this.txtAPellidoClte.PasswordChar = false;
-            this.txtAPellidoClte.Size = new System.Drawing.Size(196, 39);
-            this.txtAPellidoClte.TabIndex = 16;
-            this.txtAPellidoClte.Texts = "";
-            this.txtAPellidoClte.UnderlinedStyle = true;
-            // 
             // lblNomClte
             // 
             this.lblNomClte.AutoSize = true;
-            this.lblNomClte.Location = new System.Drawing.Point(57, 159);
+            this.lblNomClte.Location = new System.Drawing.Point(57, 152);
             this.lblNomClte.Name = "lblNomClte";
             this.lblNomClte.Size = new System.Drawing.Size(86, 25);
             this.lblNomClte.TabIndex = 15;
             this.lblNomClte.Text = "Nombre:";
-            // 
-            // txtNombreClte
-            // 
-            this.txtNombreClte.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNombreClte.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNombreClte.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNombreClte.BorderSize = 2;
-            this.txtNombreClte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNombreClte.Location = new System.Drawing.Point(157, 152);
-            this.txtNombreClte.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtNombreClte.Multiline = false;
-            this.txtNombreClte.Name = "txtNombreClte";
-            this.txtNombreClte.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
-            this.txtNombreClte.PasswordChar = false;
-            this.txtNombreClte.Size = new System.Drawing.Size(196, 39);
-            this.txtNombreClte.TabIndex = 14;
-            this.txtNombreClte.Texts = "";
-            this.txtNombreClte.UnderlinedStyle = true;
             // 
             // btnConsultar
             // 
@@ -179,24 +197,6 @@ namespace AppBanco.Forms
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // txtDNI
-            // 
-            this.txtDNI.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDNI.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtDNI.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtDNI.BorderSize = 2;
-            this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDNI.Location = new System.Drawing.Point(554, 54);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtDNI.Multiline = false;
-            this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
-            this.txtDNI.PasswordChar = false;
-            this.txtDNI.Size = new System.Drawing.Size(196, 39);
-            this.txtDNI.TabIndex = 12;
-            this.txtDNI.Texts = "";
-            this.txtDNI.UnderlinedStyle = true;
-            // 
             // chkBaja
             // 
             this.chkBaja.AutoSize = true;
@@ -211,7 +211,7 @@ namespace AppBanco.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(498, 61);
+            this.label3.Location = new System.Drawing.Point(498, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 25);
             this.label3.TabIndex = 3;
@@ -312,6 +312,7 @@ namespace AppBanco.Forms
             this.btnLimpiar.TabIndex = 12;
             this.btnLimpiar.Text = "&Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnEliminar
             // 
@@ -349,7 +350,7 @@ namespace AppBanco.Forms
             this.Controls.Add(this.gbFiltros);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmConsulaCliente";
-            this.Text = "FrmConsulaCliente";
+            this.Text = "Consultar Clientes";
             this.gbFiltros.ResumeLayout(false);
             this.gbFiltros.PerformLayout();
             this.gbResultados.ResumeLayout(false);
@@ -382,5 +383,9 @@ namespace AppBanco.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDni;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColBaja;
         private System.Windows.Forms.DataGridViewButtonColumn ColAcc;
+        private RJTextBox txtNroDni;
+        private RJTextBox txtApe;
+        private RJTextBox txtNom;
+        private RJTextBox txtNumCl;
     }
 }

@@ -39,5 +39,10 @@ namespace AppBanco.Servicios
         {
             return dao.SaveCliente(oCliente);
         }
+
+        public List<Cliente> ConsultarClientes(List<Parametro> criterios)
+        {
+            return dao.GetByFilters(criterios);
+        }
     }
 }

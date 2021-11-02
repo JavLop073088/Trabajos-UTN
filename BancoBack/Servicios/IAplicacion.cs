@@ -17,5 +17,7 @@ namespace BancoBack.Servicios
         public bool RegistrarCliente(Cliente oCliente);
 
         public int ProximoNroCliente();
+
+        public List<Cliente> ConsultarClientes(List<Parametro> criterios);
     }
 }

@@ -8,9 +8,11 @@ namespace BancoBack.Dominio
 {
     public class Cliente
     {
+        public int NroCliente { get; set; }
         public string NomCliente { get; set; }
         public string ApeCliente { get; set; }
         public int dni { get; set; }
+        public DateTime FechaBaja { get; set; }
 
         public List<Cuenta> Cartera { get; set; }
 
