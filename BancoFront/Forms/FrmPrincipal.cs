@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using Reportes;
+
 
 namespace AppBanco.Forms
 {
@@ -174,8 +176,7 @@ namespace AppBanco.Forms
 
         private void transaccionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmReportes reporte = new FrmReportes();
-            reporte.ShowDialog();
+            
         }
     }
 }

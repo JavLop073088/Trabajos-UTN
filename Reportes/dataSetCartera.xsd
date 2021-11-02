@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dataSetCartera" targetNamespace="http://tempuri.org/dataSetCartera.xsd" xmlns:mstns="http://tempuri.org/dataSetCartera.xsd" xmlns="http://tempuri.org/dataSetCartera.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dataSetCartera" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dataSetCartera" msprop:Generator_UserDSName="dataSetCartera">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtCartera" msprop:Generator_TableClassName="dtCarteraDataTable" msprop:Generator_TableVarName="tabledtCartera" msprop:Generator_TablePropName="dtCartera" msprop:Generator_RowDeletingName="dtCarteraRowDeleting" msprop:Generator_RowChangingName="dtCarteraRowChanging" msprop:Generator_RowEvHandlerName="dtCarteraRowChangeEventHandler" msprop:Generator_RowDeletedName="dtCarteraRowDeleted" msprop:Generator_UserTableName="dtCartera" msprop:Generator_RowChangedName="dtCarteraRowChanged" msprop:Generator_RowEvArgName="dtCarteraRowChangeEvent" msprop:Generator_RowClassName="dtCarteraRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nro_Cliente" msprop:Generator_ColumnVarNameInTable="columnNro_Cliente" msprop:Generator_ColumnPropNameInRow="Nro_Cliente" msprop:Generator_ColumnPropNameInTable="Nro_ClienteColumn" msprop:Generator_UserColumnName="Nro_Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Cartera" msprop:Generator_ColumnVarNameInTable="columnTotal_Cartera" msprop:Generator_ColumnPropNameInRow="Total_Cartera" msprop:Generator_ColumnPropNameInTable="Total_CarteraColumn" msprop:Generator_UserColumnName="Total_Cartera" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

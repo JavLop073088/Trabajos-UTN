@@ -67,11 +67,11 @@ namespace AppBanco.Forms
             this.gbFiltros.Controls.Add(this.label3);
             this.gbFiltros.Controls.Add(this.label2);
             this.gbFiltros.Controls.Add(this.label1);
-            this.gbFiltros.Location = new System.Drawing.Point(52, 92);
-            this.gbFiltros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbFiltros.Location = new System.Drawing.Point(84, 147);
+            this.gbFiltros.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.gbFiltros.Name = "gbFiltros";
-            this.gbFiltros.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbFiltros.Size = new System.Drawing.Size(947, 209);
+            this.gbFiltros.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.gbFiltros.Size = new System.Drawing.Size(1539, 334);
             this.gbFiltros.TabIndex = 5;
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Criterios de Busqueda";
@@ -83,14 +83,15 @@ namespace AppBanco.Forms
             this.btnConsultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConsultar.IconSize = 20;
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultar.Location = new System.Drawing.Point(812, 151);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnConsultar.Location = new System.Drawing.Point(1320, 242);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(110, 46);
+            this.btnConsultar.Size = new System.Drawing.Size(179, 74);
             this.btnConsultar.TabIndex = 13;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // txtDNI
             // 
@@ -99,13 +100,13 @@ namespace AppBanco.Forms
             this.txtDNI.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtDNI.BorderSize = 2;
             this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDNI.Location = new System.Drawing.Point(150, 98);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtDNI.Location = new System.Drawing.Point(244, 157);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.txtDNI.Multiline = false;
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtDNI.Padding = new System.Windows.Forms.Padding(11, 14, 11, 14);
             this.txtDNI.PasswordChar = false;
-            this.txtDNI.Size = new System.Drawing.Size(292, 39);
+            this.txtDNI.Size = new System.Drawing.Size(474, 59);
             this.txtDNI.TabIndex = 12;
             this.txtDNI.Texts = "";
             this.txtDNI.UnderlinedStyle = true;
@@ -115,11 +116,11 @@ namespace AppBanco.Forms
             this.dtpFechaHasta.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtpFechaHasta.BorderSize = 0;
             this.dtpFechaHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpFechaHasta.Location = new System.Drawing.Point(630, 26);
-            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(1024, 42);
+            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dtpFechaHasta.MinimumSize = new System.Drawing.Size(4, 35);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(292, 35);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(472, 36);
             this.dtpFechaHasta.SkinColor = System.Drawing.Color.MediumSlateBlue;
             this.dtpFechaHasta.TabIndex = 11;
             this.dtpFechaHasta.TextColor = System.Drawing.Color.White;
@@ -129,11 +130,11 @@ namespace AppBanco.Forms
             this.dtpFechaDesde.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtpFechaDesde.BorderSize = 0;
             this.dtpFechaDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpFechaDesde.Location = new System.Drawing.Point(150, 26);
-            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(244, 42);
+            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dtpFechaDesde.MinimumSize = new System.Drawing.Size(4, 35);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(292, 35);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(472, 36);
             this.dtpFechaDesde.SkinColor = System.Drawing.Color.MediumSlateBlue;
             this.dtpFechaDesde.TabIndex = 10;
             this.dtpFechaDesde.TextColor = System.Drawing.Color.White;
@@ -141,10 +142,10 @@ namespace AppBanco.Forms
             // chkBaja
             // 
             this.chkBaja.AutoSize = true;
-            this.chkBaja.Location = new System.Drawing.Point(150, 162);
-            this.chkBaja.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chkBaja.Location = new System.Drawing.Point(244, 259);
+            this.chkBaja.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.chkBaja.Name = "chkBaja";
-            this.chkBaja.Size = new System.Drawing.Size(196, 24);
+            this.chkBaja.Size = new System.Drawing.Size(310, 36);
             this.chkBaja.TabIndex = 9;
             this.chkBaja.Text = "Incluir con Datos de Baja";
             this.chkBaja.UseVisualStyleBackColor = true;
@@ -152,27 +153,30 @@ namespace AppBanco.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(78, 120);
+            this.label3.Location = new System.Drawing.Point(127, 192);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 20);
+            this.label3.Size = new System.Drawing.Size(60, 32);
             this.label3.TabIndex = 3;
             this.label3.Text = "DNI:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(522, 32);
+            this.label2.Location = new System.Drawing.Point(848, 51);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(144, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha hasta:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 32);
+            this.label1.Location = new System.Drawing.Point(63, 51);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.Size = new System.Drawing.Size(152, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Fecha desde:";
             // 
@@ -180,11 +184,11 @@ namespace AppBanco.Forms
             // 
             this.gbResultados.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbResultados.Controls.Add(this.dgvResultados);
-            this.gbResultados.Location = new System.Drawing.Point(52, 329);
-            this.gbResultados.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbResultados.Location = new System.Drawing.Point(84, 526);
+            this.gbResultados.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.gbResultados.Name = "gbResultados";
-            this.gbResultados.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbResultados.Size = new System.Drawing.Size(947, 318);
+            this.gbResultados.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.gbResultados.Size = new System.Drawing.Size(1539, 509);
             this.gbResultados.TabIndex = 9;
             this.gbResultados.TabStop = false;
             this.gbResultados.Text = "Resultados";
@@ -201,15 +205,15 @@ namespace AppBanco.Forms
             this.colCliente,
             this.colFechaBaja,
             this.colAcciones});
-            this.dgvResultados.Location = new System.Drawing.Point(42, 26);
-            this.dgvResultados.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvResultados.Location = new System.Drawing.Point(68, 42);
+            this.dgvResultados.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dgvResultados.MultiSelect = false;
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.RowHeadersWidth = 51;
             this.dgvResultados.RowTemplate.Height = 24;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultados.Size = new System.Drawing.Size(880, 269);
+            this.dgvResultados.Size = new System.Drawing.Size(1430, 430);
             this.dgvResultados.TabIndex = 0;
             // 
             // colNro
@@ -266,10 +270,10 @@ namespace AppBanco.Forms
             // btnLimpiar
             // 
             this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLimpiar.Location = new System.Drawing.Point(918, 666);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLimpiar.Location = new System.Drawing.Point(1492, 1066);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(81, 41);
+            this.btnLimpiar.Size = new System.Drawing.Size(132, 66);
             this.btnLimpiar.TabIndex = 12;
             this.btnLimpiar.Text = "&Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -277,10 +281,10 @@ namespace AppBanco.Forms
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminar.Location = new System.Drawing.Point(133, 666);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(216, 1066);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(94, 41);
+            this.btnEliminar.Size = new System.Drawing.Size(153, 66);
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -288,25 +292,25 @@ namespace AppBanco.Forms
             // btnEditar
             // 
             this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditar.Location = new System.Drawing.Point(52, 666);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEditar.Location = new System.Drawing.Point(84, 1066);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 41);
+            this.btnEditar.Size = new System.Drawing.Size(122, 66);
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             // 
             // FrmConsulaCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 828);
+            this.ClientSize = new System.Drawing.Size(1750, 1325);
             this.Controls.Add(this.gbResultados);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.gbFiltros);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "FrmConsulaCliente";
             this.Text = "FrmConsulaCliente";
             this.gbFiltros.ResumeLayout(false);

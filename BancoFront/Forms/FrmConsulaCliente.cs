@@ -16,5 +16,10 @@ namespace AppBanco.Forms
         {
             InitializeComponent();
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
