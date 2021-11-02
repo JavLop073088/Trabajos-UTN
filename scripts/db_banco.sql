@@ -28,6 +28,13 @@ constraint fk_tipoctas_cuentas foreign key(id_tipo_cuenta) references tipo_cuent
 constraint fk_clientes_cuentas foreign key(nro_cliente) references  clientes(nro_cliente)
 );
 
+create table administradores (
+id_admin int identity(1,1),
+nom_admin varchar(30),
+pass_admin varchar(30)
+constraint pk_administradores primary key(id_admin)
+)
+
 insert into tipo_cuentas (nom_tipo)
 values ('Cuenta Corriente'),
 		('Caja de Ahorros'),
@@ -42,6 +49,12 @@ SET DATEFORMAT DMY
 insert into clientes values ('Carlos','Torres',19236854,null)
 insert into cuentas values ('2256685987457125469325',1,40000,1,'28/10/2021')
 
+insert into administradores (nom_admin, pass_admin) 
+values
+	('CaroKuba', '112927'),
+	('JaviLopez', '112704'),
+	('FedeIrusta', '113102'),
+	('FabriLoPresti', '112713')
 
 
 --STORED PROCEDURES--
@@ -87,8 +100,60 @@ BEGIN
 		VALUES (@cbuCta, @nroClte, @saldoCta, @idTipoCta, @ultMov)
 END
 -------------------------------------------------------
-
+CREATE PROCEDURE SP_LOGIN_ADMINS
+	@username VARCHAR(30),
+	@password VARCHAR(30),
+	@retorno INT OUTPUT
+AS
+BEGIN
+	SELECT
+		@retorno = COUNT(*)
+	FROM administradores
+	WHERE nom_admin = @username
+	AND pass_admin = @password
+END
+DECLARE @resultado int
+EXEC SP_LOGIN_ADMINS 'CaroKuba', '112927', @resultado output
+SELECT @resultado
+-------------------------------------------------------
+--Cambio Fabri 01/11
+CREATE PROCEDURE SP_GRAFICO_TORTA
+AS
+BEGIN
+	SELECT
+		YEAR(C.ultimo_mov) AS 'years',
+		COUNT(C.id_tipo_cuenta) AS 'total'
+	FROM cuentas C
+	GROUP BY YEAR(C.ultimo_mov)
+END
+-------------------------------------------------------
+--Cambios Javi 02/11
+CREATE PROCEDURE SP_CONSULTAR_CLIENTES
+	@nroClte int,
+	@nomClte varchar(50),
+	@apeClte varchar(50),
+	@dniClte int,
+	@dato_baja varchar(4)
+AS
+BEGIN
+	IF(@dato_baja = 'N')
+		SELECT * FROM clientes c
+		WHERE ( (c.nro_cliente = @nroClte) 
+		OR (c.nom_cliente like '%'+@nomClte+'%')
+		OR (c.ape_cliente like '%'+@apeClte+'%')
+		OR (c.dni_cliente = @dniClte) )
+		AND (fecha_baja is null)
+	else
+		SELECT * FROM clientes c
+		WHERE ( (c.nro_cliente = @nroClte) 
+		OR (c.nom_cliente like '%'+@nomClte+'%')
+		OR (c.ape_cliente like '%'+@apeClte+'%')
+		OR (c.dni_cliente = @dniClte) )
+		AND (fecha_baja is not null)
+	
+END
+-------------------------------------------------------
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas
-
+select * from administradores

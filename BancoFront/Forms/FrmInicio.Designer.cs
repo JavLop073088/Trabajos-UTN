@@ -46,7 +46,7 @@ namespace AppBanco.Forms
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(525, 135);
             this.lblHora.TabIndex = 0;
-            this.lblHora.Text = "23:21:15";
+            this.lblHora.Text = "00:00:00";
             // 
             // pictureBox1
             // 

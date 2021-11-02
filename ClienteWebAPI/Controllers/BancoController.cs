@@ -1,6 +1,6 @@
 ﻿using AppBanco.Acceso_a_Datos;
-using AppBanco.Dominio;
 using AppBanco.Servicios;
+using BancoBack.Dominio;
 using BancoBack.Servicios;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,19 +21,25 @@ namespace BancoWebAPI.Controllers
         {
             app = new ApplicationFactory().CrearAplicacion(new DaoFactory());
         }
-
+        //-----------------------------------------------------
         [HttpGet("tipos")]
         public IActionResult GetTipos()
         {
             return Ok(app.ConsultarTipos());
         }
-
+        //-----------------------------------------------------
+        [HttpGet("cuentasTorta")]
+        public IActionResult GetCuentasTorta()
+        {
+            return Ok(app.ConsultarGraficoTorta());
+        }
+        //-----------------------------------------------------
         [HttpGet("numero")]
         public IActionResult GetNumero()
         {
             return Ok(app.ProximoNroCliente());
         }
-
+        //-----------------------------------------------------
         [HttpPost("registro")]
         public IActionResult PostCliente(Cliente oCliente)
         {
@@ -45,6 +51,17 @@ namespace BancoWebAPI.Controllers
 
             return BadRequest("Se requiere número de Cliente");
         }
+        //-----------------------------------------------------
+        [HttpPost("consultaparam")]
+        public IActionResult PostConsulta(List<Parametro> filtros)
+        {
+            if (filtros == null || filtros.Count == 0)
+                return BadRequest("Se requiere una lista de parámetros!");
+
+            return Ok(app.ConsultarClientes(filtros));
+        }
+        //-----------------------------------------------------
+
 
         //para el update es un Put?
     }

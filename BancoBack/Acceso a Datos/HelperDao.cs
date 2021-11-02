@@ -1,4 +1,5 @@
-﻿using AppBanco.Dominio;
+﻿using BancoBack.Dominio;
+using BancoBack.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -34,8 +35,8 @@ namespace AppBanco.Acceso_a_Datos
             return instancia;
         }
 
-        
-
+        //Métodos de Acceso a Datos
+        //-------------------------------------------------------------------------------------------
         public DataTable ConsultaTabla(string storeName)
         {
             tabla = new DataTable();
@@ -61,7 +62,7 @@ namespace AppBanco.Acceso_a_Datos
             }
             return tabla;           
         }
-
+        //-------------------------------------------------------------------------------------------
         public SqlParameter ConsultaNro(string storeName, string outputName)
         {          
             cnn = new SqlConnection();
@@ -92,7 +93,43 @@ namespace AppBanco.Acceso_a_Datos
                     cnn.Close();
             }          
         }
+        //-------------------------------------------------------------------------------------------
+        public DataTable ConsultaTablaParam(string storeName, List<Parametro> criterios)
+        {
+            tabla = new DataTable();
+            cnn = new SqlConnection(cadenaConexion);
+            cmd = new SqlCommand();
 
+            try
+            {               
+                cnn.Open();
+                cmd = new SqlCommand(storeName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                foreach (Parametro param in criterios)
+                {
+                    if(param.Valor == null)
+                        cmd.Parameters.AddWithValue(param.Nombre, DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue(param.Nombre, param.Valor.ToString());
+                    //cmd.Parameters.AddWithValue(param.Nombre, param.Valor);
+                }
+
+                tabla.Load(cmd.ExecuteReader());               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return tabla;
+
+        }
+        //-------------------------------------------------------------------------------------------
         public bool Insert(string spMaestro, string spDetalle, Cliente oCliente)
         {
             cnn = new SqlConnection();
@@ -148,5 +185,6 @@ namespace AppBanco.Acceso_a_Datos
             return resultado;
 
         }
+        //-------------------------------------------------------------------------------------------
     }
 }

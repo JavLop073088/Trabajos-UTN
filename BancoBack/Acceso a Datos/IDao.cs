@@ -1,4 +1,5 @@
-﻿using AppBanco.Dominio;
+﻿using BancoBack.Dominio;
+using BancoBack.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace AppBanco.Acceso_a_Datos
     {
         public List<TipoCuenta> GetTipoCuentas();
 
+        public List<Revenue> GetGraficoTorta();
+
         public bool SaveCliente(Cliente oCliente);
 
         public int NextNumCliente();
 
-        
+        public List<Cliente> GetByFilters(List<Parametro> criterios);
     }
 }
