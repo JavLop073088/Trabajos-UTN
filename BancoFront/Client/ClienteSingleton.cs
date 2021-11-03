@@ -25,7 +25,7 @@ namespace BancoFront.Client
             }           
             return instancia;
         }
-
+        //---------------------------------------------------------------------------------------------
         //Métodos http
         public async Task<string> GetAsync(string url)
         {
@@ -37,7 +37,7 @@ namespace BancoFront.Client
 
             return content;
         }
-
+        //---------------------------------------------------------------------------------------------
         public async Task<string> PostAsync(string url, string data)
         {
             StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
@@ -50,7 +50,7 @@ namespace BancoFront.Client
 
             return response;
         }
-
+        //---------------------------------------------------------------------------------------------
         public async Task<string> DeleteAsync(string url)
         {
             var result = await client.DeleteAsync(url);

@@ -44,5 +44,10 @@ namespace AppBanco.Servicios
         {
             return dao.GetByFilters(criterios);
         }
+
+        public bool RegistrarBajaCliente(int numeroClte)
+        {
+            return dao.SaveBajaCliente(numeroClte);
+        }
     }
 }

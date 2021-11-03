@@ -71,12 +71,17 @@ namespace AppBanco.Acceso_a_Datos
                 oCliente.ApeCliente = row["ape_cliente"].ToString();
                 oCliente.dni = Convert.ToInt32(row["dni_cliente"].ToString());
                 if (!row["fecha_baja"].Equals(DBNull.Value))
-                    oCliente.FechaBaja = Convert.ToDateTime(row["fecha_baja"].ToString());               
-
+                    oCliente.FechaBaja = Convert.ToDateTime(row["fecha_baja"].ToString());
+                
                 listClts.Add(oCliente);
             }
 
             return listClts;
+        }
+        //-------------------------------------------------------------------------------------------
+        public bool SaveBajaCliente(int numeroClte)
+        {
+            return HelperDao.ObtenerInstancia().DeleteById("SP_REGISTRAR_BAJA", numeroClte);
         }
         //-------------------------------------------------------------------------------------------
     }

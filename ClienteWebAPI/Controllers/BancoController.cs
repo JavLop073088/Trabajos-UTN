@@ -61,7 +61,13 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ConsultarClientes(filtros));
         }
         //-----------------------------------------------------
-
+        [HttpDelete("{numeroClte}")]
+        public IActionResult Delete(int numeroClte)
+        {
+            if (numeroClte == 0)
+                return BadRequest("Id es requerido!");
+            return Ok(app.RegistrarBajaCliente(numeroClte));
+        }
 
         //para el update es un Put?
     }

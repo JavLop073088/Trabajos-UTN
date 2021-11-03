@@ -203,9 +203,9 @@ namespace AppBanco.Forms
             this.chkBaja.Location = new System.Drawing.Point(460, 222);
             this.chkBaja.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkBaja.Name = "chkBaja";
-            this.chkBaja.Size = new System.Drawing.Size(246, 29);
+            this.chkBaja.Size = new System.Drawing.Size(138, 29);
             this.chkBaja.TabIndex = 9;
-            this.chkBaja.Text = "Incluir con Datos de Baja";
+            this.chkBaja.Text = "Incluir Bajas";
             this.chkBaja.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -325,6 +325,7 @@ namespace AppBanco.Forms
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 

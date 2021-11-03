@@ -19,5 +19,7 @@ namespace AppBanco.Acceso_a_Datos
         public int NextNumCliente();
 
         public List<Cliente> GetByFilters(List<Parametro> criterios);
+
+        public bool SaveBajaCliente(int numeroClte);
     }
 }
