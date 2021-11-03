@@ -46,6 +46,23 @@ namespace AppBanco.Acceso_a_Datos
             return lst;
         }
         //-------------------------------------------------------------------------------------------
+        public List<Revenue> GetGraficoCartesiano()
+        {
+            List<Revenue> lst = new List<Revenue>();
+            DataTable t = HelperDao.ObtenerInstancia().ConsultaTabla("SP_GRAFICO_CARTESIANO");
+
+            foreach (DataRow row in t.Rows)
+            {
+                Revenue oIngresos = new Revenue();
+                oIngresos.Year = Convert.ToInt32(row["years"].ToString());
+                oIngresos.Month = Convert.ToInt32(row["months"].ToString());
+                oIngresos.Value = Convert.ToDouble(row["total"].ToString());
+
+                lst.Add(oIngresos);
+            }
+            return lst;
+        }
+        //-------------------------------------------------------------------------------------------
         public bool SaveCliente(Cliente oCliente)
         {
             return HelperDao.ObtenerInstancia().Insert("SP_INSERTAR_CLIENTE", "SP_INSERTAR_CUENTA", oCliente);
@@ -77,6 +94,18 @@ namespace AppBanco.Acceso_a_Datos
             }
 
             return listClts;
+        }
+        //-------------------------------------------------------------------------------------------
+        public int GetByFiltersAdmins(Administrador oAdmin)
+        {
+            int res = 0;
+            SqlParameter param = HelperDao.ObtenerInstancia().ConsultarAdministrador("SP_LOGIN_ADMINS", "@retorno", oAdmin);
+            if(param.Equals(DBNull.Value))
+            {
+                res = 0;
+            }
+
+            return res = Convert.ToInt32(param.Value);
         }
         //-------------------------------------------------------------------------------------------
     }

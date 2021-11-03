@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using BancoBack.Dominio;
+using BancoBack.Servicios;
+using Newtonsoft.Json;
+using BancoFront.Client;
 
 namespace AppBanco.Forms
 {
@@ -81,19 +85,66 @@ namespace AppBanco.Forms
             }
         }
 
-        private void btnIngreso_Click(object sender, EventArgs e)
+        private async void btnIngreso_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmPrincipal principal = new FrmPrincipal();
-            principal.ShowDialog();
-            this.Close();
+            List<Parametro> filtros = new List<Parametro>();
+            object valor1 = DBNull.Value, valor2 = DBNull.Value;
+
+
+            if (rjTxtUsername.Texts != "USUARIO")
+            {
+                valor1 = rjTxtUsername.Texts.ToString();
+                filtros.Add(new Parametro("@username", valor1));
+            } else
+            {
+                MessageBox.Show("Debe Ingresar un Nombre de usuario valido");
+                return;
+            }
+
+            if (rjTxtPassword.Texts != "PASSWORD")
+            {
+                valor1 = rjTxtUsername.Texts.ToString();
+                filtros.Add(new Parametro("@password", valor1));
+            }
+            else
+            {
+                MessageBox.Show("Debe Ingresar un Password de usuario valido");
+                return;
+            }
+
+            // Validacion API
+            Administrador admin = new Administrador();
+            admin.NomAdmin = rjTxtUsername.Texts;
+            admin.PassAdmin = rjTxtPassword.Texts;
+            int res = await CargarConsultaAdmin(admin);
+
+            if(res == 1)
+            {
+                // Abrir Form Principal
+                this.Hide();
+                FrmPrincipal principal = new FrmPrincipal();
+                principal.ShowDialog();
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Datos incorrectos o usuario inexistente");
+                return;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------
+        //Métodos HttpClient:
+        private async Task<int> CargarConsultaAdmin(Administrador oAdmin)
+        {
+            string filtrosJson = JsonConvert.SerializeObject(oAdmin);
+            string url = "https://localhost:44317/api/Banco/consultaAdmin";
+
+            var resultado = await ClienteSingleton.GetInstance().PostAsync(url, filtrosJson);
+
+            int res = JsonConvert.DeserializeObject<int>(resultado);
+
+            return res;
         }
     }
 }
 
-namespace BancoFront
-{
-    class FrmLogin : Form
-    {
-    }
-}

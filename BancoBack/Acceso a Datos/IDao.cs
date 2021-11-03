@@ -14,10 +14,14 @@ namespace AppBanco.Acceso_a_Datos
 
         public List<Revenue> GetGraficoTorta();
 
+        public List<Revenue> GetGraficoCartesiano();
+
         public bool SaveCliente(Cliente oCliente);
 
         public int NextNumCliente();
 
         public List<Cliente> GetByFilters(List<Parametro> criterios);
+
+        public int GetByFiltersAdmins(Administrador oAdmin);
     }
 }

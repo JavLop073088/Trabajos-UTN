@@ -22,7 +22,7 @@ namespace AppBanco.Acceso_a_Datos
 
         private HelperDao()
         {
-            cadenaConexion = @"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True";
+            cadenaConexion = @"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True";
             //cadenaConexion = Properties.Resources.strConexion; 
         }
 
@@ -186,5 +186,38 @@ namespace AppBanco.Acceso_a_Datos
 
         }
         //-------------------------------------------------------------------------------------------
+        public SqlParameter ConsultarAdministrador(string storeName, string outputName, Administrador oAdmin)
+        {
+            cnn = new SqlConnection();
+            cmd = new SqlCommand();
+            try
+            {
+                cnn.ConnectionString = cadenaConexion;
+                cnn.Open();
+
+                SqlCommand cmdMaestro = new SqlCommand(storeName, cnn);
+                cmdMaestro.CommandType = CommandType.StoredProcedure;
+                cmdMaestro.Parameters.AddWithValue("@username", oAdmin.NomAdmin);
+                cmdMaestro.Parameters.AddWithValue("@password", oAdmin.PassAdmin);
+
+                SqlParameter param = new SqlParameter(outputName, SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
+                cmdMaestro.Parameters.Add(param);
+                cmdMaestro.ExecuteNonQuery();
+
+                return param;
+            }
+            catch (SqlException ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            cnn = new SqlConnection();
+        }
     }
 }

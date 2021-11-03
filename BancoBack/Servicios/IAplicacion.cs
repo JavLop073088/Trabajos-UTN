@@ -14,10 +14,14 @@ namespace BancoBack.Servicios
 
         public List<Revenue> ConsultarGraficoTorta();
 
+        public List<Revenue> ConsultarGraficoCartesiano();
+
         public bool RegistrarCliente(Cliente oCliente);
 
         public int ProximoNroCliente();
 
         public List<Cliente> ConsultarClientes(List<Parametro> criterios);
+
+        public int ConsultarAdmins(Administrador oAdmin);
     }
 }
