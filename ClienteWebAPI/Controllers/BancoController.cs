@@ -58,6 +58,18 @@ namespace BancoWebAPI.Controllers
             return BadRequest("Se requiere número de Cliente");
         }
         //-----------------------------------------------------
+        [HttpPost("altatipo")]
+        public IActionResult PostTipo(TipoCuenta oTipo)
+        {
+            if (oTipo != null)
+            {
+                bool result = app.RegistrarTipoCuenta(oTipo);
+                return Ok(result);
+            }
+
+            return BadRequest("Se requiere nombre de Cuenta");
+        }
+        //-----------------------------------------------------       
         [HttpPost("consultaparam")]
         public IActionResult PostConsulta(List<Parametro> filtros)
         {
@@ -67,6 +79,7 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ConsultarClientes(filtros));
         }
         //-----------------------------------------------------
+<<<<<<< HEAD
         [HttpPost("consultaAdmin")]
         public IActionResult PostConsultaAdmin(Administrador oAdmin)
         {
@@ -77,6 +90,15 @@ namespace BancoWebAPI.Controllers
         }
 
 
+=======
+        [HttpDelete("{numeroClte}")]
+        public IActionResult Delete(int numeroClte)
+        {
+            if (numeroClte == 0)
+                return BadRequest("Id es requerido!");
+            return Ok(app.RegistrarBajaCliente(numeroClte));
+        }
+>>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
 
         //para el update es un Put?
     }

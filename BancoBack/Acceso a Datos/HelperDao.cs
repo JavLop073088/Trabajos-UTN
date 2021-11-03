@@ -22,8 +22,12 @@ namespace AppBanco.Acceso_a_Datos
 
         private HelperDao()
         {
+<<<<<<< HEAD
             cadenaConexion = @"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True";
             //cadenaConexion = Properties.Resources.strConexion; 
+=======
+            cadenaConexion = @"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True";           
+>>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
         }
 
         public static HelperDao ObtenerInstancia() 
@@ -111,8 +115,7 @@ namespace AppBanco.Acceso_a_Datos
                     if(param.Valor == null)
                         cmd.Parameters.AddWithValue(param.Nombre, DBNull.Value);
                     else
-                        cmd.Parameters.AddWithValue(param.Nombre, param.Valor.ToString());
-                    //cmd.Parameters.AddWithValue(param.Nombre, param.Valor);
+                        cmd.Parameters.AddWithValue(param.Nombre, param.Valor.ToString());             
                 }
 
                 tabla.Load(cmd.ExecuteReader());               
@@ -128,6 +131,31 @@ namespace AppBanco.Acceso_a_Datos
             }
             return tabla;
 
+        }
+        //-------------------------------------------------------------------------------------------
+        public bool DeleteById(string storeName, int numeroClte)
+        {
+            cnn = new SqlConnection(cadenaConexion);
+            cmd = new SqlCommand();
+            bool rta = true;
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(storeName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nroClte", numeroClte);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return rta;
         }
         //-------------------------------------------------------------------------------------------
         public bool Insert(string spMaestro, string spDetalle, Cliente oCliente)
@@ -186,6 +214,7 @@ namespace AppBanco.Acceso_a_Datos
 
         }
         //-------------------------------------------------------------------------------------------
+<<<<<<< HEAD
         public SqlParameter ConsultarAdministrador(string storeName, string outputName, Administrador oAdmin)
         {
             cnn = new SqlConnection();
@@ -210,14 +239,36 @@ namespace AppBanco.Acceso_a_Datos
             catch (SqlException ex)
             {
                 throw (ex);
+=======
+        public bool InsertTipo(string storeName, TipoCuenta oTipo)
+        {
+            cnn = new SqlConnection(cadenaConexion);
+            cmd = new SqlCommand();
+            bool rta = true;
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(storeName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombreTipo", oTipo.NombreTipo);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                rta = false;
+>>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
             }
             finally
             {
                 if (cnn != null && cnn.State == ConnectionState.Open)
                     cnn.Close();
             }
+<<<<<<< HEAD
 
             cnn = new SqlConnection();
+=======
+            return rta;
+>>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
         }
     }
 }

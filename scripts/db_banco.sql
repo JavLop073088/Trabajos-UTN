@@ -99,7 +99,9 @@ BEGIN
 	INSERT INTO cuentas (cbu, nro_cliente, saldo, id_tipo_cuenta, ultimo_mov)
 		VALUES (@cbuCta, @nroClte, @saldoCta, @idTipoCta, @ultMov)
 END
+
 -------------------------------------------------------
+--Cambio Fabri 01/11
 CREATE PROCEDURE SP_LOGIN_ADMINS
 	@username VARCHAR(30),
 	@password VARCHAR(30),
@@ -116,7 +118,7 @@ DECLARE @resultado int
 EXEC SP_LOGIN_ADMINS 'CaroKuba', '112927', @resultado output
 SELECT @resultado
 -------------------------------------------------------
---Cambio Fabri 01/11
+
 CREATE PROCEDURE SP_GRAFICO_TORTA
 AS
 BEGIN
@@ -139,7 +141,7 @@ BEGIN
 END
 -------------------------------------------------------
 --Cambios Javi 02/11
-CREATE PROCEDURE SP_CONSULTAR_CLIENTES
+ALTER PROCEDURE SP_CONSULTAR_CLIENTES
 	@nroClte int,
 	@nomClte varchar(50),
 	@apeClte varchar(50),
@@ -160,7 +162,7 @@ BEGIN
 		OR (c.nom_cliente like '%'+@nomClte+'%')
 		OR (c.ape_cliente like '%'+@apeClte+'%')
 		OR (c.dni_cliente = @dniClte) )
-		AND (fecha_baja is not null)
+		OR (fecha_baja is not null)
 	
 END
 -------------------------------------------------------
@@ -172,7 +174,10 @@ BEGIN
 	INSERT INTO tipo_cuentas
 		VALUES(@nombreTipo)
 END
+<<<<<<< HEAD
 
+=======
+>>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas

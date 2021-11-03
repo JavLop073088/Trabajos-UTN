@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using Reportes;
+
 
 namespace AppBanco.Forms
 {
@@ -156,6 +158,30 @@ namespace AppBanco.Forms
             {
                 this.Dispose();
             }
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Desea Salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void transaccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Error al tratar de referenciar el Form:
+            //The ReportViewer controls pre-date .NET Core and there are several missing capabilities that the ReportViewer requires,
+            //unfortunately at this time this scenario is not supported.
+            //FrmReportes reporte = new FrmReportes ();
+            //reporte.ShowDialog();
+
         }
     }
 }

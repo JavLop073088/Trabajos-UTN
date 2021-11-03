@@ -87,12 +87,14 @@ namespace AppBanco.Forms
 
                 if (saveOK)
                 {
-                    MessageBox.Show("El Cliente se ha registrado con éxito", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El Cliente se ha registrado con éxito", 
+                        "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
                 else
                 {
-                    MessageBox.Show("El Cliente no pudo registrarse, consulte al Administrador", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);                  
+                    MessageBox.Show("El Cliente no pudo registrarse, consulte al Administrador", 
+                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);                  
                 }
             }
         }
@@ -153,19 +155,22 @@ namespace AppBanco.Forms
         {
             if (dgvCuentas.Rows.Count == 0)
             {
-                MessageBox.Show("Debe Registrar al menos una Cuenta", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe Registrar al menos una Cuenta", 
+                    "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnAgregarCuenta.Focus();
                 return false;
             }
             if (txtNombre.Texts.Trim() == "")
             {
-                MessageBox.Show("Debe ingresar un Nombre de Cliente", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar un Nombre de Cliente", 
+                    "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNombre.Focus();
                 return false;
             }
             if (txtApellido.Texts.Trim() == "")
             {
-                MessageBox.Show("Debe ingresar un Apellido de Cliente", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar un Apellido de Cliente", 
+                    "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtApellido.Focus();
                 return false;
             }
@@ -174,13 +179,15 @@ namespace AppBanco.Forms
                 || Convert.ToInt32(txtDNI.Texts) <= 0
                 || txtDNI.Texts.Length < 8)
             {
-                MessageBox.Show("Debe Ingresar un DNI válido, de al menos 8 dígitos", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe Ingresar un DNI válido, de al menos 8 dígitos", 
+                    "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDNI.Focus();
                 return false;
             }
             if (txtSaldo.Texts.Trim() == "")
             {
-                MessageBox.Show("Debe ingresar un Saldo de Cuenta mayor o igual a Cero", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar un Saldo de Cuenta mayor o igual a Cero", 
+                    "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNombre.Focus();
                 return false;
             }

@@ -21,5 +21,10 @@ namespace AppBanco.Forms
         {
             this.Dispose();
         }
+
+        private void FrmIntegrantes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

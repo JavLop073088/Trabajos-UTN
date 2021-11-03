@@ -66,17 +66,17 @@ namespace AppBanco.Forms
             this.gbFiltros.Controls.Add(this.txtNom);
             this.gbFiltros.Controls.Add(this.txtNumCl);
             this.gbFiltros.Controls.Add(this.lblNroClte);
+            this.gbFiltros.Controls.Add(this.btnConsultar);
             this.gbFiltros.Controls.Add(this.lblApeClte);
             this.gbFiltros.Controls.Add(this.lblNomClte);
-            this.gbFiltros.Controls.Add(this.btnConsultar);
             this.gbFiltros.Controls.Add(this.chkBaja);
             this.gbFiltros.Controls.Add(this.label3);
             this.gbFiltros.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbFiltros.Location = new System.Drawing.Point(52, 92);
-            this.gbFiltros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbFiltros.Location = new System.Drawing.Point(67, 80);
+            this.gbFiltros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbFiltros.Name = "gbFiltros";
-            this.gbFiltros.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbFiltros.Size = new System.Drawing.Size(947, 259);
+            this.gbFiltros.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbFiltros.Size = new System.Drawing.Size(941, 236);
             this.gbFiltros.TabIndex = 5;
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Criterios de Busqueda";
@@ -88,13 +88,13 @@ namespace AppBanco.Forms
             this.txtNroDni.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtNroDni.BorderSize = 2;
             this.txtNroDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNroDni.Location = new System.Drawing.Point(554, 47);
-            this.txtNroDni.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNroDni.Location = new System.Drawing.Point(594, 47);
+            this.txtNroDni.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNroDni.Multiline = false;
             this.txtNroDni.Name = "txtNroDni";
-            this.txtNroDni.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtNroDni.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtNroDni.PasswordChar = false;
-            this.txtNroDni.Size = new System.Drawing.Size(218, 39);
+            this.txtNroDni.Size = new System.Drawing.Size(165, 33);
             this.txtNroDni.TabIndex = 23;
             this.txtNroDni.Texts = "";
             this.txtNroDni.UnderlinedStyle = true;
@@ -106,13 +106,13 @@ namespace AppBanco.Forms
             this.txtApe.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtApe.BorderSize = 2;
             this.txtApe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtApe.Location = new System.Drawing.Point(554, 145);
-            this.txtApe.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtApe.Location = new System.Drawing.Point(594, 132);
+            this.txtApe.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtApe.Multiline = false;
             this.txtApe.Name = "txtApe";
-            this.txtApe.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtApe.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtApe.PasswordChar = false;
-            this.txtApe.Size = new System.Drawing.Size(218, 39);
+            this.txtApe.Size = new System.Drawing.Size(165, 33);
             this.txtApe.TabIndex = 22;
             this.txtApe.Texts = "";
             this.txtApe.UnderlinedStyle = true;
@@ -124,13 +124,13 @@ namespace AppBanco.Forms
             this.txtNom.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtNom.BorderSize = 2;
             this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNom.Location = new System.Drawing.Point(147, 145);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNom.Location = new System.Drawing.Point(156, 128);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNom.Multiline = false;
             this.txtNom.Name = "txtNom";
-            this.txtNom.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtNom.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtNom.PasswordChar = false;
-            this.txtNom.Size = new System.Drawing.Size(218, 39);
+            this.txtNom.Size = new System.Drawing.Size(165, 33);
             this.txtNom.TabIndex = 21;
             this.txtNom.Texts = "";
             this.txtNom.UnderlinedStyle = true;
@@ -142,13 +142,13 @@ namespace AppBanco.Forms
             this.txtNumCl.BorderFocusColor = System.Drawing.Color.HotPink;
             this.txtNumCl.BorderSize = 2;
             this.txtNumCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNumCl.Location = new System.Drawing.Point(147, 49);
-            this.txtNumCl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNumCl.Location = new System.Drawing.Point(211, 43);
+            this.txtNumCl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNumCl.Multiline = false;
             this.txtNumCl.Name = "txtNumCl";
-            this.txtNumCl.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            this.txtNumCl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtNumCl.PasswordChar = false;
-            this.txtNumCl.Size = new System.Drawing.Size(74, 39);
+            this.txtNumCl.Size = new System.Drawing.Size(46, 33);
             this.txtNumCl.TabIndex = 20;
             this.txtNumCl.Texts = "";
             this.txtNumCl.UnderlinedStyle = true;
@@ -156,7 +156,8 @@ namespace AppBanco.Forms
             // lblNroClte
             // 
             this.lblNroClte.AutoSize = true;
-            this.lblNroClte.Location = new System.Drawing.Point(22, 56);
+            this.lblNroClte.Location = new System.Drawing.Point(63, 47);
+            this.lblNroClte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNroClte.Name = "lblNroClte";
             this.lblNroClte.Size = new System.Drawing.Size(129, 25);
             this.lblNroClte.TabIndex = 19;
@@ -165,7 +166,8 @@ namespace AppBanco.Forms
             // lblApeClte
             // 
             this.lblApeClte.AutoSize = true;
-            this.lblApeClte.Location = new System.Drawing.Point(460, 152);
+            this.lblApeClte.Location = new System.Drawing.Point(502, 136);
+            this.lblApeClte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApeClte.Name = "lblApeClte";
             this.lblApeClte.Size = new System.Drawing.Size(88, 25);
             this.lblApeClte.TabIndex = 17;
@@ -174,7 +176,8 @@ namespace AppBanco.Forms
             // lblNomClte
             // 
             this.lblNomClte.AutoSize = true;
-            this.lblNomClte.Location = new System.Drawing.Point(57, 152);
+            this.lblNomClte.Location = new System.Drawing.Point(66, 132);
+            this.lblNomClte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomClte.Name = "lblNomClte";
             this.lblNomClte.Size = new System.Drawing.Size(86, 25);
             this.lblNomClte.TabIndex = 15;
@@ -187,10 +190,10 @@ namespace AppBanco.Forms
             this.btnConsultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConsultar.IconSize = 20;
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultar.Location = new System.Drawing.Point(816, 205);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnConsultar.Location = new System.Drawing.Point(796, 181);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(125, 46);
+            this.btnConsultar.Size = new System.Drawing.Size(132, 40);
             this.btnConsultar.TabIndex = 13;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -200,18 +203,19 @@ namespace AppBanco.Forms
             // chkBaja
             // 
             this.chkBaja.AutoSize = true;
-            this.chkBaja.Location = new System.Drawing.Point(460, 222);
-            this.chkBaja.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chkBaja.Location = new System.Drawing.Point(505, 203);
+            this.chkBaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkBaja.Name = "chkBaja";
-            this.chkBaja.Size = new System.Drawing.Size(246, 29);
+            this.chkBaja.Size = new System.Drawing.Size(138, 29);
             this.chkBaja.TabIndex = 9;
-            this.chkBaja.Text = "Incluir con Datos de Baja";
+            this.chkBaja.Text = "Incluir Bajas";
             this.chkBaja.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(498, 54);
+            this.label3.Location = new System.Drawing.Point(540, 51);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 25);
             this.label3.TabIndex = 3;
@@ -222,11 +226,11 @@ namespace AppBanco.Forms
             this.gbResultados.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbResultados.Controls.Add(this.dgvResultados);
             this.gbResultados.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbResultados.Location = new System.Drawing.Point(52, 359);
-            this.gbResultados.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbResultados.Location = new System.Drawing.Point(67, 342);
+            this.gbResultados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbResultados.Name = "gbResultados";
-            this.gbResultados.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbResultados.Size = new System.Drawing.Size(947, 288);
+            this.gbResultados.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbResultados.Size = new System.Drawing.Size(941, 257);
             this.gbResultados.TabIndex = 9;
             this.gbResultados.TabStop = false;
             this.gbResultados.Text = "Resultados";
@@ -243,12 +247,13 @@ namespace AppBanco.Forms
             this.ColDni,
             this.ColBaja,
             this.ColAcc});
-            this.dgvResultados.Location = new System.Drawing.Point(24, 58);
+            this.dgvResultados.Location = new System.Drawing.Point(21, 38);
+            this.dgvResultados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.RowHeadersWidth = 51;
             this.dgvResultados.RowTemplate.Height = 29;
-            this.dgvResultados.Size = new System.Drawing.Size(897, 188);
+            this.dgvResultados.Size = new System.Drawing.Size(893, 190);
             this.dgvResultados.TabIndex = 0;
             // 
             // ColNro
@@ -305,10 +310,10 @@ namespace AppBanco.Forms
             // 
             this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLimpiar.Location = new System.Drawing.Point(874, 655);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLimpiar.Location = new System.Drawing.Point(899, 603);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(125, 41);
+            this.btnLimpiar.Size = new System.Drawing.Size(109, 43);
             this.btnLimpiar.TabIndex = 12;
             this.btnLimpiar.Text = "&Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -318,22 +323,23 @@ namespace AppBanco.Forms
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.Location = new System.Drawing.Point(209, 655);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(211, 603);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(125, 41);
+            this.btnEliminar.Size = new System.Drawing.Size(109, 43);
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEditar.Location = new System.Drawing.Point(52, 655);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEditar.Location = new System.Drawing.Point(67, 603);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(125, 41);
+            this.btnEditar.Size = new System.Drawing.Size(109, 43);
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -342,7 +348,7 @@ namespace AppBanco.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 828);
+            this.ClientSize = new System.Drawing.Size(1077, 784);
             this.Controls.Add(this.gbResultados);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnLimpiar);

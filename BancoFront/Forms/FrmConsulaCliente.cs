@@ -56,16 +56,15 @@ namespace AppBanco.Forms
 
             foreach (Cliente oCliente in lista)
             {
-                dgvResultados.Rows.Add(new object[]
-                {
+                dgvResultados.Rows.Add(new object[]{
                     oCliente.NroCliente,
                     oCliente.NomCliente,
                     oCliente.ApeCliente,
                     oCliente.dni,
-                    oCliente.FechaBaja
-                });
+                    oCliente.GetFechaBajaFormato()
+                }) ;              
             }
-          
+
             if (dgvResultados.RowCount == 0)
                 MessageBox.Show("No Existen Coincidencias para los Parámetros de su Consulta",
                                 "Información",MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -74,6 +73,31 @@ namespace AppBanco.Forms
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+        }
+        //-------------------------------------------------------------------------------------------
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvResultados.CurrentRow;
+            if(row != null)
+            {
+                int numeroClte = Int32.Parse(row.Cells["ColNro"].Value.ToString());
+
+                if (MessageBox.Show("Seguro que desea dar de Baja al Cliente seleccionado?",
+                                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    bool respuesta = await BajaClienteAsync(numeroClte);
+
+                    if (respuesta)
+                    {
+                        MessageBox.Show("El Cliente ha sido dado de Baja",
+                                        "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.btnConsultar_Click(null, null);
+                    }
+                    else
+                        MessageBox.Show("La Baja de Cliente no pudo realizarse",
+                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         //-------------------------------------------------------------------------------------------
         //Métodos HttpClient:
@@ -89,6 +113,13 @@ namespace AppBanco.Forms
             listClte = JsonConvert.DeserializeObject<List<Cliente>>(resultado);
 
             return listClte;
+        }
+        //-------------------------------------------------------------------------------------------
+        private async Task<bool> BajaClienteAsync(int numeroClte)
+        {
+            string url = "https://localhost:44317/api/Banco/" + numeroClte.ToString();           
+            var result = await ClienteSingleton.GetInstance().DeleteAsync(url);
+            return result.Equals("true");
         }
         //-------------------------------------------------------------------------------------------
         //Métodos Auxiliares:
