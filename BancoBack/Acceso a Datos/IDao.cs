@@ -21,5 +21,6 @@ namespace AppBanco.Acceso_a_Datos
         public List<Cliente> GetByFilters(List<Parametro> criterios);
 
         public bool SaveBajaCliente(int numeroClte);
+        bool SaveTipoCuenta(TipoCuenta oTipo);
     }
 }

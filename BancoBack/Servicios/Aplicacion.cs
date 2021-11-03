@@ -29,7 +29,6 @@ namespace AppBanco.Servicios
             return dao.GetGraficoTorta();
         }
 
-
         public int ProximoNroCliente()
         {
             return dao.NextNumCliente();
@@ -48,6 +47,11 @@ namespace AppBanco.Servicios
         public bool RegistrarBajaCliente(int numeroClte)
         {
             return dao.SaveBajaCliente(numeroClte);
+        }
+
+        public bool RegistrarTipoCuenta(TipoCuenta oTipo)
+        {
+            return dao.SaveTipoCuenta(oTipo);
         }
     }
 }

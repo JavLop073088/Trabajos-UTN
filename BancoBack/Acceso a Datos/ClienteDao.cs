@@ -83,6 +83,11 @@ namespace AppBanco.Acceso_a_Datos
         {
             return HelperDao.ObtenerInstancia().DeleteById("SP_REGISTRAR_BAJA", numeroClte);
         }
+
+        public bool SaveTipoCuenta(TipoCuenta oTipo)
+        {
+            return HelperDao.ObtenerInstancia().InsertTipo("SP_INSERTAR_TIPOS", oTipo);
+        }
         //-------------------------------------------------------------------------------------------
     }
 }

@@ -82,7 +82,7 @@ namespace AppBanco.Forms
             {
                 int numeroClte = Int32.Parse(row.Cells["ColNro"].Value.ToString());
 
-                if (MessageBox.Show("Seguro que desea dar de Baja al CLiente seleccionado?",
+                if (MessageBox.Show("Seguro que desea dar de Baja al Cliente seleccionado?",
                                     "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     bool respuesta = await BajaClienteAsync(numeroClte);

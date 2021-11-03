@@ -152,7 +152,6 @@ namespace AppBanco.Acceso_a_Datos
             }
             return rta;
         }
-
         //-------------------------------------------------------------------------------------------
         public bool Insert(string spMaestro, string spDetalle, Cliente oCliente)
         {
@@ -210,5 +209,29 @@ namespace AppBanco.Acceso_a_Datos
 
         }
         //-------------------------------------------------------------------------------------------
+        public bool InsertTipo(string storeName, TipoCuenta oTipo)
+        {
+            cnn = new SqlConnection(cadenaConexion);
+            cmd = new SqlCommand();
+            bool rta = true;
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(storeName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombreTipo", oTipo.NombreTipo);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return rta;
+        }
     }
 }

@@ -155,6 +155,14 @@ BEGIN
 	
 END
 -------------------------------------------------------
+--Cambios Javi 03/11
+CREATE PROCEDURE SP_INSERTAR_TIPOS
+	@nombreTipo varchar(50)
+AS
+BEGIN
+	INSERT INTO tipo_cuentas
+		VALUES(@nombreTipo)
+END
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas

@@ -52,6 +52,18 @@ namespace BancoWebAPI.Controllers
             return BadRequest("Se requiere número de Cliente");
         }
         //-----------------------------------------------------
+        [HttpPost("altatipo")]
+        public IActionResult PostTipo(TipoCuenta oTipo)
+        {
+            if (oTipo != null)
+            {
+                bool result = app.RegistrarTipoCuenta(oTipo);
+                return Ok(result);
+            }
+
+            return BadRequest("Se requiere nombre de Cuenta");
+        }
+        //-----------------------------------------------------       
         [HttpPost("consultaparam")]
         public IActionResult PostConsulta(List<Parametro> filtros)
         {

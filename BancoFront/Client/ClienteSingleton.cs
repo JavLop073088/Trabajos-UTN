@@ -42,7 +42,7 @@ namespace BancoFront.Client
         {
             StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
 
-            var result = await client.PostAsync(url, content); //acá está el error
+            var result = await client.PostAsync(url, content); 
             var response = "";
             
             if (result.IsSuccessStatusCode)
