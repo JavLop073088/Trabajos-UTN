@@ -104,7 +104,7 @@ namespace AppBanco.Forms
         private void btnCargarCliente_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            AbrirFormHijo(new FrmAltaCliente());
+            AbrirFormHijo(new FrmAltaCliente(Action.NUEVO,0));
         }
 
         private void btnAjustesCuenta_Click_1(object sender, EventArgs e)
@@ -181,6 +181,7 @@ namespace AppBanco.Forms
             //unfortunately at this time this scenario is not supported.
             //FrmReportes reporte = new FrmReportes ();
             //reporte.ShowDialog();
+            
 
         }
     }

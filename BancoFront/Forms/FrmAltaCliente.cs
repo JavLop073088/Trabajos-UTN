@@ -14,24 +14,51 @@ using System.Windows.Forms;
 
 namespace AppBanco.Forms
 {
+    public enum Action
+    {
+        NUEVO,
+        VER,
+        EDITAR
+    }
     public partial class FrmAltaCliente : Form
     {
+        private Action modo;
+        private int nro;
+
         Cliente oCliente = new Cliente();
 
-        public FrmAltaCliente()
+        public FrmAltaCliente(Action modo, int nro)//*
         {
             InitializeComponent();
+            this.modo = modo;
+            this.nro = nro;          
         }
 
         private async void FrmAltaCliente_Load(object sender, EventArgs e)
         {
-            txtCBU.Enabled = false;
-            dtpFechaAlta.Enabled = false;
-            txtCBU.Texts = GenerarCbu();
-            
-            await CargarComboAsync();
-            await CargarNroClteAsync();
+            if (modo.Equals(Action.NUEVO))
+            {
+                txtCBU.Enabled = false;
+                dtpFechaAlta.Enabled = false;
+                txtCBU.Texts = GenerarCbu();
 
+                await CargarComboAsync();
+                await CargarNroClteAsync();
+            }
+            //------------------------------------------------------------
+            if (modo.Equals(Action.VER))
+            {
+                BloquearCampos();               
+                this.Text = "Visualizar Datos del Cliente";
+                await CargarClienteCuentaAync(this.nro);
+            }
+            //------------------------------------------------------------
+            if (modo.Equals(Action.EDITAR))
+            {
+                
+                this.Text = "Modificar Datos del Cliente";
+                
+            }
         }
         //-------------------------------------------------------------------------------------------
         //Métodos de Eventos
@@ -48,12 +75,12 @@ namespace AppBanco.Forms
 
             oCliente.AgregarCuenta(oCuenta);
 
-            dgvCuentas.Rows.Add(new object[] { "", oTipo.NombreTipo, oCuenta.Cbu, oCuenta.Saldo, oCuenta.UltimoMov }); ;
+            dgvCuentas.Rows.Add(new object[] { "", oTipo.NombreTipo, oCuenta.Cbu, oCuenta.Saldo, oCuenta.UltimoMov });
 
             CalcularTotalCartera();
             txtCBU.Texts = GenerarCbu();
         }
-
+        //-------------------------------------------------------------------------------------------
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult rta = MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", 
@@ -63,7 +90,7 @@ namespace AppBanco.Forms
                 LimpiarCampos();
             }          
         }
-
+        //-------------------------------------------------------------------------------------------
         private void dgvCuentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCuentas.CurrentCell.ColumnIndex == 6)
@@ -73,7 +100,7 @@ namespace AppBanco.Forms
                 CalcularTotalCartera();
             }
         }
-
+        //-------------------------------------------------------------------------------------------
         private async void btnAceptar_ClickAsync(object sender, EventArgs e)
         {
 
@@ -108,7 +135,7 @@ namespace AppBanco.Forms
             var result = await ClienteSingleton.GetInstance().PostAsync(url, json);
             return result.Equals("true");
         }
-
+        //-------------------------------------------------------------------------------------------
         private async Task CargarNroClteAsync()
         {
             string url = "https://localhost:44317/api/Banco/numero";
@@ -117,7 +144,7 @@ namespace AppBanco.Forms
 
             lblNroClte.Text = nro.ToString();
         }
-
+        //-------------------------------------------------------------------------------------------
         private async Task CargarComboAsync()
         {
             string url = "https://localhost:44317/api/Banco/tipos";
@@ -127,6 +154,25 @@ namespace AppBanco.Forms
             cboTipoCuenta.DataSource = lst;
             cboTipoCuenta.DisplayMember = "NombreTipo";
             cboTipoCuenta.ValueMember = "IdTipo";        
+        }
+        //-------------------------------------------------------------------------------------------
+        private async Task CargarClienteCuentaAync(int nro)
+        {
+            string url = "https://localhost:44317/api/Banco/" + nro.ToString();
+            var resultado = await ClienteSingleton.GetInstance().GetAsync(url);
+            this.oCliente = JsonConvert.DeserializeObject<Cliente>(resultado);
+
+            lblNroClte.Text = oCliente.NroCliente.ToString();
+            txtNombre.Texts = oCliente.NomCliente;
+            txtApellido.Texts = oCliente.ApeCliente;
+            txtDNI.Texts = oCliente.dni.ToString();
+
+            dgvCuentas.Rows.Clear();
+            foreach (Cuenta oCta in oCliente.Cartera)
+            {
+                dgvCuentas.Rows.Add(new object[] { "", oCta.TipoCta.NombreTipo,oCta.Cbu, oCta.Saldo, oCta.UltimoMov });
+            }
+            CalcularTotalCartera();
         }
         //-------------------------------------------------------------------------------------------
         //Métodos Auxiliares:
@@ -144,13 +190,13 @@ namespace AppBanco.Forms
 
             return resultado;
         }
-
+        //-------------------------------------------------------------------------------------------
         private void CalcularTotalCartera()
         {
             double total = oCliente.CalcularTotalCartera();
             lblTotal.Text = total.ToString();
         }
-
+        //-------------------------------------------------------------------------------------------
         private bool ValidarCampos()
         {
             if (dgvCuentas.Rows.Count == 0)
@@ -194,7 +240,7 @@ namespace AppBanco.Forms
 
             return true;
         }
-
+        //-------------------------------------------------------------------------------------------
         private async void LimpiarCampos()
         {
             txtNombre.Texts = "";
@@ -208,6 +254,15 @@ namespace AppBanco.Forms
             txtNombre.Focus();
             await CargarNroClteAsync();
         }
-
+        //-------------------------------------------------------------------------------------------
+        private void BloquearCampos()
+        {
+            gpBoxCartera.Enabled = false;
+            gpBoxCliente.Enabled = false;
+            spBoxCuenta.Enabled = false;
+            btnAceptar.Enabled = false;
+            btnCancelar.Enabled = false;
+        }
+        //-------------------------------------------------------------------------------------------
     }
 }

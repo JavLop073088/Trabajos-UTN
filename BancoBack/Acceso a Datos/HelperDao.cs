@@ -19,6 +19,7 @@ namespace AppBanco.Acceso_a_Datos
         private SqlCommand cmd = null;
         private DataTable tabla = null;
         private SqlTransaction trans = null;
+        private SqlDataReader reader = null;
 
         private HelperDao()
         {
@@ -126,6 +127,59 @@ namespace AppBanco.Acceso_a_Datos
             }
             return tabla;
 
+        }
+        //-------------------------------------------------------------------------------------------
+        public Cliente SelectByNro(string storeName, int nro)
+        {           
+            cnn = new SqlConnection(cadenaConexion);
+            cmd = new SqlCommand();
+            Cliente oCliente = new Cliente();
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(storeName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nro", nro);
+                reader = cmd.ExecuteReader();
+
+                bool firstReg = true;
+
+                while (reader.Read())
+                {
+                    if (firstReg)
+                    {
+                        oCliente.NroCliente = Convert.ToInt32(reader["nro_cliente"].ToString());
+                        oCliente.NomCliente = reader["nom_cliente"].ToString();
+                        oCliente.ApeCliente = reader["ape_cliente"].ToString();
+                        oCliente.dni = Convert.ToInt32(reader["dni_cliente"].ToString());
+                        if (!reader["fecha_baja"].Equals(DBNull.Value))
+                            oCliente.FechaBaja = Convert.ToDateTime(reader["fecha_baja"].ToString());
+                        firstReg = false;
+                    }
+
+                    Cuenta oCuenta = new Cuenta();
+                    TipoCuenta oTipo = new TipoCuenta();
+                    oTipo.IdTipo = Convert.ToInt32(reader["id_tipo_cuenta"].ToString());
+                    oTipo.NombreTipo = reader["nom_tipo"].ToString();
+                    oCuenta.TipoCta = oTipo;
+                    oCuenta.Cbu = reader["cbu"].ToString();
+                    oCuenta.Saldo = Convert.ToDouble(reader["saldo"].ToString());
+                    oCuenta.UltimoMov = Convert.ToDateTime(reader["ultimo_mov"].ToString());
+                    firstReg = false;
+                    oCliente.AgregarCuenta(oCuenta);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return oCliente;
         }
         //-------------------------------------------------------------------------------------------
         public bool DeleteById(string storeName, int numeroClte)

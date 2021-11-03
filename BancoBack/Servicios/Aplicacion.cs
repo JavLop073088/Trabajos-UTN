@@ -53,5 +53,10 @@ namespace AppBanco.Servicios
         {
             return dao.SaveTipoCuenta(oTipo);
         }
+
+        public Cliente ObtenerClienteByNro(int nro)
+        {
+            return dao.GetByNro(nro);
+        }
     }
 }

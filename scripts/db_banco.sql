@@ -55,7 +55,7 @@ values
 	('JaviLopez', '112704'),
 	('FedeIrusta', '113102'),
 	('FabriLoPresti', '112713')
-
+select * from administradores
 
 --STORED PROCEDURES--
 
@@ -163,6 +163,22 @@ BEGIN
 	INSERT INTO tipo_cuentas
 		VALUES(@nombreTipo)
 END
+-------------------------------------------------------
+--2do Cambio Javi 03/11
+CREATE PROCEDURE SP_CONSULTAR_POR_NRO
+	@nro int	
+AS
+BEGIN
+	SELECT *
+	FROM clientes t1, cuentas  t2, tipo_cuentas t3
+	WHERE t1.nro_cliente = t2.nro_cliente
+	AND t2.id_tipo_cuenta = t3.id_tipo_cuenta
+	AND t1.nro_cliente = @nro;
+END
+
+exec SP_CONSULTAR_POR_NRO 10
+
+-------------------------------------------------------
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas

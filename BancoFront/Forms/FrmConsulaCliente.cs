@@ -100,6 +100,16 @@ namespace AppBanco.Forms
             }
         }
         //-------------------------------------------------------------------------------------------
+        private void dgvResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvResultados.CurrentCell.ColumnIndex == 5)
+            {
+                int nroClte = Convert.ToInt32(dgvResultados.CurrentRow.Cells["ColNro"].Value.ToString());
+                FrmAltaCliente form = new FrmAltaCliente(Action.VER,nroClte);
+                form.ShowDialog();
+            }
+        }
+        //-------------------------------------------------------------------------------------------
         //Métodos HttpClient:
         private async Task<List<Cliente>> CargarConsultaClteAsync(List<Parametro> filtros)
         {
@@ -129,8 +139,6 @@ namespace AppBanco.Forms
             chkBaja.Checked = false;
             dgvResultados.Rows.Clear();
             btnConsultar.Focus();
-        }
-
-        
+        }       
     }
 }

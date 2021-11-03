@@ -37,9 +37,9 @@ namespace AppBanco.Forms
             this.txtNom = new BancoFront.Forms.Componentes.RJTextBox();
             this.txtNumCl = new BancoFront.Forms.Componentes.RJTextBox();
             this.lblNroClte = new System.Windows.Forms.Label();
+            this.btnConsultar = new FontAwesome.Sharp.IconButton();
             this.lblApeClte = new System.Windows.Forms.Label();
             this.lblNomClte = new System.Windows.Forms.Label();
-            this.btnConsultar = new FontAwesome.Sharp.IconButton();
             this.chkBaja = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbResultados = new System.Windows.Forms.GroupBox();
@@ -73,9 +73,9 @@ namespace AppBanco.Forms
             this.gbFiltros.Controls.Add(this.label3);
             this.gbFiltros.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbFiltros.Location = new System.Drawing.Point(67, 80);
-            this.gbFiltros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.gbFiltros.Name = "gbFiltros";
-            this.gbFiltros.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbFiltros.Padding = new System.Windows.Forms.Padding(2);
             this.gbFiltros.Size = new System.Drawing.Size(941, 236);
             this.gbFiltros.TabIndex = 5;
             this.gbFiltros.TabStop = false;
@@ -163,6 +163,23 @@ namespace AppBanco.Forms
             this.lblNroClte.TabIndex = 19;
             this.lblNroClte.Text = "Nº de Cliente:";
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnConsultar.IconColor = System.Drawing.Color.Black;
+            this.btnConsultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnConsultar.IconSize = 20;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultar.Location = new System.Drawing.Point(796, 181);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(132, 40);
+            this.btnConsultar.TabIndex = 13;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
             // lblApeClte
             // 
             this.lblApeClte.AutoSize = true;
@@ -183,28 +200,11 @@ namespace AppBanco.Forms
             this.lblNomClte.TabIndex = 15;
             this.lblNomClte.Text = "Nombre:";
             // 
-            // btnConsultar
-            // 
-            this.btnConsultar.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnConsultar.IconColor = System.Drawing.Color.Black;
-            this.btnConsultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnConsultar.IconSize = 20;
-            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultar.Location = new System.Drawing.Point(796, 181);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(132, 40);
-            this.btnConsultar.TabIndex = 13;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
             // chkBaja
             // 
             this.chkBaja.AutoSize = true;
             this.chkBaja.Location = new System.Drawing.Point(505, 203);
-            this.chkBaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkBaja.Margin = new System.Windows.Forms.Padding(2);
             this.chkBaja.Name = "chkBaja";
             this.chkBaja.Size = new System.Drawing.Size(138, 29);
             this.chkBaja.TabIndex = 9;
@@ -227,9 +227,9 @@ namespace AppBanco.Forms
             this.gbResultados.Controls.Add(this.dgvResultados);
             this.gbResultados.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbResultados.Location = new System.Drawing.Point(67, 342);
-            this.gbResultados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbResultados.Margin = new System.Windows.Forms.Padding(2);
             this.gbResultados.Name = "gbResultados";
-            this.gbResultados.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbResultados.Padding = new System.Windows.Forms.Padding(2);
             this.gbResultados.Size = new System.Drawing.Size(941, 257);
             this.gbResultados.TabIndex = 9;
             this.gbResultados.TabStop = false;
@@ -248,13 +248,14 @@ namespace AppBanco.Forms
             this.ColBaja,
             this.ColAcc});
             this.dgvResultados.Location = new System.Drawing.Point(21, 38);
-            this.dgvResultados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvResultados.Margin = new System.Windows.Forms.Padding(2);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.RowHeadersWidth = 51;
             this.dgvResultados.RowTemplate.Height = 29;
             this.dgvResultados.Size = new System.Drawing.Size(893, 190);
             this.dgvResultados.TabIndex = 0;
+            this.dgvResultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultados_CellContentClick);
             // 
             // ColNro
             // 
@@ -311,7 +312,7 @@ namespace AppBanco.Forms
             this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLimpiar.Location = new System.Drawing.Point(899, 603);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(109, 43);
             this.btnLimpiar.TabIndex = 12;
@@ -324,7 +325,7 @@ namespace AppBanco.Forms
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEliminar.Location = new System.Drawing.Point(211, 603);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 43);
             this.btnEliminar.TabIndex = 11;
@@ -337,7 +338,7 @@ namespace AppBanco.Forms
             this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.Location = new System.Drawing.Point(67, 603);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(109, 43);
             this.btnEditar.TabIndex = 10;

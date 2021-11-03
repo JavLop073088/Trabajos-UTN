@@ -40,6 +40,14 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ProximoNroCliente());
         }
         //-----------------------------------------------------
+        [HttpGet("{nro}")]
+        public IActionResult Get(int nro)
+        {
+            if (nro == 0)
+                return BadRequest("Se requiere Nro de Cliente");
+            return Ok(app.ObtenerClienteByNro(nro));
+        }
+        //-----------------------------------------------------
         [HttpPost("registro")]
         public IActionResult PostCliente(Cliente oCliente)
         {

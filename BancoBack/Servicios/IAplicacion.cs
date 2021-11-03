@@ -23,5 +23,7 @@ namespace BancoBack.Servicios
         public bool RegistrarBajaCliente(int numeroClte);
 
         public bool RegistrarTipoCuenta(TipoCuenta oTipo);
+
+        public Cliente ObtenerClienteByNro(int nro);
     }
 }
