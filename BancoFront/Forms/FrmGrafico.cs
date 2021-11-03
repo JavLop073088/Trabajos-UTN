@@ -46,53 +46,46 @@ namespace AppBanco.Forms
             await CargarTortaAsync();
         }
 
-        private void btnConsultar_Click_1(object sender, EventArgs e)
+        private async void btnConsultar_Click_1(object sender, EventArgs e)
         {
-            List<Revenue> lst = new List<Revenue>();
-            DataTable table = new DataTable();
+            await CargarCartesiano();
+        }
 
-            SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=pruebagraficos;Integrated Security=True");
+        //-------------------------------------------------------------------------------------------
+        //Métodos HttpClient:
+        private async Task CargarTortaAsync()
+        {
+            string url = "https://localhost:44317/api/Banco/cuentasTorta";
+            var data = await ClienteSingleton.GetInstance().GetAsync(url);
+            List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
+            MostrarGraficoTorta(lst);
+        }
 
-            try
+        private async Task CargarCartesiano()
+        {
+            string url = "https://localhost:44317/api/Banco/cartesiano";
+            var data = await ClienteSingleton.GetInstance().GetAsync(url);
+            List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
+            MostrarGraficoCartesiano(lst);
+        }
+        //-------------------------------------------------------------------------------------------
+        //Métodos Auxiliares:
+        private void MostrarGraficoTorta(List<Revenue> lst)
+        {
+            Func<ChartPoint, string> labelPoint = chartpoint => string.Format("{0} ({1:P})", chartpoint.Y, chartpoint.Participation);
+            pieChart2.LegendLocation = LegendLocation.Bottom;
+            
+
+            SeriesCollection series = new SeriesCollection();
+            foreach (var obj in lst)
             {
-                cnn.Open();
-
-                SqlCommand cmd = new SqlCommand("SELECT * FROM ingresos", cnn);
-                cmd.CommandType = CommandType.Text;
-
-
-                table.Load(cmd.ExecuteReader());
-                //mappear los registros como objetos del dominio:
-
-                foreach (DataRow row in table.Rows)
-                {
-                    //Por cada registro creamos un objeto del dominio
-                    Revenue oIngresos = new Revenue();
-                    oIngresos.Year = Convert.ToInt32(row["years"].ToString());
-                    oIngresos.Month = Convert.ToInt32(row["months"].ToString());
-                    oIngresos.Value = Convert.ToDouble(row["total"].ToString());
-
-
-                    lst.Add(oIngresos);
-                    //MessageBox.Show(oIngresos.Year.ToString());
-                    //MessageBox.Show(oIngresos.Month.ToString());
-                    //MessageBox.Show(oIngresos.Value.ToString());
-                }
-
-                cnn.Close();
+                series.Add(new PieSeries() { Title = obj.Year.ToString(), Values = new ChartValues<double> { obj.Value }, DataLabels = true, LabelPoint = labelPoint });
             }
-            catch (SqlException)
-            {
-                lst = null;
-            }
+            pieChart2.Series = series;
+        }
 
-            //foreach (var v in lst)
-            //{
-            //    MessageBox.Show(v.Year.ToString());
-            //    MessageBox.Show(v.Month.ToString());
-            //    MessageBox.Show(v.Value.ToString());
-            //}
-
+        private void MostrarGraficoCartesiano(List<Revenue> lst)
+        {
             cartesianChart1.Series.Clear();
             SeriesCollection series = new SeriesCollection();
 
@@ -117,32 +110,6 @@ namespace AppBanco.Forms
                 series.Add(new LineSeries() { Title = year.Year.ToString(), Values = new ChartValues<double>(values) });
             }
             cartesianChart1.Series = series;
-        }
-
-        //-------------------------------------------------------------------------------------------
-        //Métodos HttpClient:
-        private async Task CargarTortaAsync()
-        {
-            string url = "https://localhost:44317/api/Banco/cuentasTorta";
-            var data = await ClienteSingleton.GetInstance().GetAsync(url);
-            List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
-            MostrarGraficoTorta(lst);
-        }
-
-        //-------------------------------------------------------------------------------------------
-        //Métodos Auxiliares:
-        private void MostrarGraficoTorta(List<Revenue> lst)
-        {
-            Func<ChartPoint, string> labelPoint = chartpoint => string.Format("{0} ({1:P})", chartpoint.Y, chartpoint.Participation);
-            pieChart2.LegendLocation = LegendLocation.Bottom;
-            
-
-            SeriesCollection series = new SeriesCollection();
-            foreach (var obj in lst)
-            {
-                series.Add(new PieSeries() { Title = obj.Year.ToString(), Values = new ChartValues<double> { obj.Value }, DataLabels = true, LabelPoint = labelPoint });
-            }
-            pieChart2.Series = series;
         }
     }
 }

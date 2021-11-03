@@ -34,6 +34,12 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ConsultarGraficoTorta());
         }
         //-----------------------------------------------------
+        [HttpGet("cartesiano")]
+        public IActionResult GetGraficoCartesiano()
+        {
+            return Ok(app.ConsultarGraficoCartesiano());
+        }
+        //-----------------------------------------------------
         [HttpGet("numero")]
         public IActionResult GetNumero()
         {
@@ -80,7 +86,16 @@ namespace BancoWebAPI.Controllers
 
             return Ok(app.ConsultarClientes(filtros));
         }
-        //-----------------------------------------------------
+
+        [HttpPost("consultaAdmin")]
+        public IActionResult PostConsultaAdmin(Administrador oAdmin)
+        {
+            if (oAdmin == null)
+                return BadRequest("Se requiere una lista de parámetros!");
+
+            return Ok(app.ConsultarAdmins(oAdmin));
+        }
+
         [HttpDelete("{numeroClte}")]
         public IActionResult Delete(int numeroClte)
         {
@@ -88,6 +103,7 @@ namespace BancoWebAPI.Controllers
                 return BadRequest("Id es requerido!");
             return Ok(app.RegistrarBajaCliente(numeroClte));
         }
+
 
         //para el update es un Put?
     }

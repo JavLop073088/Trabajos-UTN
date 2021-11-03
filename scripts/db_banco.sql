@@ -128,6 +128,17 @@ BEGIN
 	FROM cuentas C
 	GROUP BY YEAR(C.ultimo_mov)
 END
+
+CREATE PROCEDURE SP_GRAFICO_CARTESIANO
+AS
+BEGIN
+	SELECT
+		YEAR(C.ultimo_mov) AS 'years',
+		MONTH(C.ultimo_mov) AS 'months',
+		SUM(C.saldo) AS 'total'
+	FROM cuentas C
+	GROUP BY YEAR(C.ultimo_mov), MONTH(C.ultimo_mov)
+END
 -------------------------------------------------------
 --Cambios Javi 02/11
 ALTER PROCEDURE SP_CONSULTAR_CLIENTES
@@ -163,6 +174,7 @@ BEGIN
 	INSERT INTO tipo_cuentas
 		VALUES(@nombreTipo)
 END
+<<<<<<< HEAD
 -------------------------------------------------------
 --2do Cambio Javi 03/11
 CREATE PROCEDURE SP_CONSULTAR_POR_NRO
@@ -179,6 +191,9 @@ END
 exec SP_CONSULTAR_POR_NRO 10
 
 -------------------------------------------------------
+=======
+
+>>>>>>> 1f0bafeac1843146325c94e0603c44d14ca062d8
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas
