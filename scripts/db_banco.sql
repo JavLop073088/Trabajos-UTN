@@ -174,10 +174,7 @@ BEGIN
 	INSERT INTO tipo_cuentas
 		VALUES(@nombreTipo)
 END
-<<<<<<< HEAD
 
-=======
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas

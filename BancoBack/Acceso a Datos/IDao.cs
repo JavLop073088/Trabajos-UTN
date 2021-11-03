@@ -22,11 +22,11 @@ namespace AppBanco.Acceso_a_Datos
 
         public List<Cliente> GetByFilters(List<Parametro> criterios);
 
-<<<<<<< HEAD
         public int GetByFiltersAdmins(Administrador oAdmin);
-=======
+
         public bool SaveBajaCliente(int numeroClte);
+
         bool SaveTipoCuenta(TipoCuenta oTipo);
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
+
     }
 }

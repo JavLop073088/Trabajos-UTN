@@ -29,14 +29,11 @@ namespace AppBanco.Servicios
             return dao.GetGraficoTorta();
         }
 
-<<<<<<< HEAD
         public List<Revenue> ConsultarGraficoCartesiano()
         {
             return dao.GetGraficoCartesiano();
         }
 
-=======
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
         public int ProximoNroCliente()
         {
             return dao.NextNumCliente();
@@ -52,11 +49,11 @@ namespace AppBanco.Servicios
             return dao.GetByFilters(criterios);
         }
 
-<<<<<<< HEAD
         public int ConsultarAdmins(Administrador oAdmin)
         {
             return dao.GetByFiltersAdmins(oAdmin);
-=======
+        }
+
         public bool RegistrarBajaCliente(int numeroClte)
         {
             return dao.SaveBajaCliente(numeroClte);
@@ -65,7 +62,6 @@ namespace AppBanco.Servicios
         public bool RegistrarTipoCuenta(TipoCuenta oTipo)
         {
             return dao.SaveTipoCuenta(oTipo);
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
         }
     }
 }

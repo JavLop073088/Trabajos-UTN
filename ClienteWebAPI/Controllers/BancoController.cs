@@ -78,8 +78,7 @@ namespace BancoWebAPI.Controllers
 
             return Ok(app.ConsultarClientes(filtros));
         }
-        //-----------------------------------------------------
-<<<<<<< HEAD
+
         [HttpPost("consultaAdmin")]
         public IActionResult PostConsultaAdmin(Administrador oAdmin)
         {
@@ -89,8 +88,6 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ConsultarAdmins(oAdmin));
         }
 
-
-=======
         [HttpDelete("{numeroClte}")]
         public IActionResult Delete(int numeroClte)
         {
@@ -98,7 +95,7 @@ namespace BancoWebAPI.Controllers
                 return BadRequest("Id es requerido!");
             return Ok(app.RegistrarBajaCliente(numeroClte));
         }
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
+
 
         //para el update es un Put?
     }

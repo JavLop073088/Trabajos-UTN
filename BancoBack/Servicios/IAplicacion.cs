@@ -22,12 +22,11 @@ namespace BancoBack.Servicios
 
         public List<Cliente> ConsultarClientes(List<Parametro> criterios);
 
-<<<<<<< HEAD
         public int ConsultarAdmins(Administrador oAdmin);
-=======
+
         public bool RegistrarBajaCliente(int numeroClte);
 
         public bool RegistrarTipoCuenta(TipoCuenta oTipo);
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
+
     }
 }

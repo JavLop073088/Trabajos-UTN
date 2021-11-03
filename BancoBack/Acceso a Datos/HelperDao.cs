@@ -22,12 +22,9 @@ namespace AppBanco.Acceso_a_Datos
 
         private HelperDao()
         {
-<<<<<<< HEAD
+
             cadenaConexion = @"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True";
             //cadenaConexion = Properties.Resources.strConexion; 
-=======
-            cadenaConexion = @"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True";           
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
         }
 
         public static HelperDao ObtenerInstancia() 
@@ -214,7 +211,6 @@ namespace AppBanco.Acceso_a_Datos
 
         }
         //-------------------------------------------------------------------------------------------
-<<<<<<< HEAD
         public SqlParameter ConsultarAdministrador(string storeName, string outputName, Administrador oAdmin)
         {
             cnn = new SqlConnection();
@@ -239,8 +235,15 @@ namespace AppBanco.Acceso_a_Datos
             catch (SqlException ex)
             {
                 throw (ex);
-=======
-        public bool InsertTipo(string storeName, TipoCuenta oTipo)
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+        }
+
+            public bool InsertTipo(string storeName, TipoCuenta oTipo)
         {
             cnn = new SqlConnection(cadenaConexion);
             cmd = new SqlCommand();
@@ -256,19 +259,19 @@ namespace AppBanco.Acceso_a_Datos
             catch (Exception)
             {
                 rta = false;
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
+
             }
             finally
             {
                 if (cnn != null && cnn.State == ConnectionState.Open)
                     cnn.Close();
             }
-<<<<<<< HEAD
+
 
             cnn = new SqlConnection();
-=======
+
             return rta;
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
+
         }
     }
 }

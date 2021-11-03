@@ -96,18 +96,19 @@ namespace AppBanco.Acceso_a_Datos
             return listClts;
         }
         //-------------------------------------------------------------------------------------------
-<<<<<<< HEAD
+
         public int GetByFiltersAdmins(Administrador oAdmin)
         {
             int res = 0;
             SqlParameter param = HelperDao.ObtenerInstancia().ConsultarAdministrador("SP_LOGIN_ADMINS", "@retorno", oAdmin);
-            if(param.Equals(DBNull.Value))
+            if (param.Equals(DBNull.Value))
             {
                 res = 0;
             }
 
             return res = Convert.ToInt32(param.Value);
-=======
+        }
+
         public bool SaveBajaCliente(int numeroClte)
         {
             return HelperDao.ObtenerInstancia().DeleteById("SP_REGISTRAR_BAJA", numeroClte);
@@ -116,7 +117,6 @@ namespace AppBanco.Acceso_a_Datos
         public bool SaveTipoCuenta(TipoCuenta oTipo)
         {
             return HelperDao.ObtenerInstancia().InsertTipo("SP_INSERTAR_TIPOS", oTipo);
->>>>>>> 151c935bd463926ed2a15b82561675f1a488d9ee
         }
         //-------------------------------------------------------------------------------------------
     }
