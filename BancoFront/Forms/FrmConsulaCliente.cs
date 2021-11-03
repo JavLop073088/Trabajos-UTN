@@ -100,6 +100,18 @@ namespace AppBanco.Forms
             }
         }
         //-------------------------------------------------------------------------------------------
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvResultados.CurrentRow;
+            if (row != null)
+            {
+                int nroClte = Convert.ToInt32(dgvResultados.CurrentRow.Cells["ColNro"].Value.ToString());
+                FrmAltaCliente form = new FrmAltaCliente(Action.EDITAR, nroClte);
+                form.ShowDialog();
+
+            }
+        }
+        //-------------------------------------------------------------------------------------------
         private void dgvResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(dgvResultados.CurrentCell.ColumnIndex == 5)
@@ -139,6 +151,8 @@ namespace AppBanco.Forms
             chkBaja.Checked = false;
             dgvResultados.Rows.Clear();
             btnConsultar.Focus();
-        }       
+        }
+
+        
     }
 }

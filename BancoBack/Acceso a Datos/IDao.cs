@@ -26,13 +26,12 @@ namespace AppBanco.Acceso_a_Datos
 
         public bool SaveBajaCliente(int numeroClte);
 
-<<<<<<< HEAD
         public bool SaveTipoCuenta(TipoCuenta oTipo);
 
         public Cliente GetByNro(int nro);
-=======
-        bool SaveTipoCuenta(TipoCuenta oTipo);
 
->>>>>>> 1f0bafeac1843146325c94e0603c44d14ca062d8
+        public bool SaveModifCliente(Cliente oCliente);
+
     }
+
 }

@@ -96,7 +96,6 @@ namespace AppBanco.Acceso_a_Datos
             return listClts;
         }
         //-------------------------------------------------------------------------------------------
-
         public int GetByFiltersAdmins(Administrador oAdmin)
         {
             int res = 0;
@@ -108,7 +107,7 @@ namespace AppBanco.Acceso_a_Datos
 
             return res = Convert.ToInt32(param.Value);
         }
-
+        //-------------------------------------------------------------------------------------------
         public bool SaveBajaCliente(int numeroClte)
         {
             return HelperDao.ObtenerInstancia().DeleteById("SP_REGISTRAR_BAJA", numeroClte);
@@ -124,5 +123,12 @@ namespace AppBanco.Acceso_a_Datos
             return HelperDao.ObtenerInstancia().SelectByNro("SP_CONSULTAR_POR_NRO", nro);
         }
         //-------------------------------------------------------------------------------------------
+        public bool SaveModifCliente(Cliente oCliente)
+        {
+            return HelperDao.ObtenerInstancia().Update("SP_ACTUALIZAR_CLIENTE", "SP_ACTUALIZAR_CUENTA", oCliente);
+        }
+        //-------------------------------------------------------------------------------------------
+
     }
+
 }

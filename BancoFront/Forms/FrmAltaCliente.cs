@@ -55,7 +55,11 @@ namespace AppBanco.Forms
             //------------------------------------------------------------
             if (modo.Equals(Action.EDITAR))
             {
-                
+                txtCBU.Enabled = false;
+                dtpFechaAlta.Enabled = false;
+                txtCBU.Texts = GenerarCbu();
+                await CargarComboAsync();
+                await CargarClienteCuentaAync(this.nro);
                 this.Text = "Modificar Datos del Cliente";
                 
             }
@@ -87,13 +91,16 @@ namespace AppBanco.Forms
                                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (rta == DialogResult.Yes)
             {
-                LimpiarCampos();
+                if (modo.Equals(Action.NUEVO))
+                    LimpiarCampos();
+                if (modo.Equals(Action.EDITAR))
+                    this.Dispose();
             }          
         }
         //-------------------------------------------------------------------------------------------
         private void dgvCuentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvCuentas.CurrentCell.ColumnIndex == 6)
+            if (dgvCuentas.CurrentCell.ColumnIndex == 5)
             {
                 oCliente.QuitarCuenta(dgvCuentas.CurrentRow.Index);
                 dgvCuentas.Rows.Remove(dgvCuentas.CurrentRow);
@@ -103,34 +110,68 @@ namespace AppBanco.Forms
         //-------------------------------------------------------------------------------------------
         private async void btnAceptar_ClickAsync(object sender, EventArgs e)
         {
-
-            if (ValidarCampos())
+            if (modo.Equals(Action.NUEVO))
             {
-                oCliente.NomCliente = txtNombre.Texts;
-                oCliente.ApeCliente = txtApellido.Texts;
-                oCliente.dni = Convert.ToInt32(txtDNI.Texts);               
-                
-                var saveOK = await RegistrarClienteAsync(oCliente);
+                if (ValidarCampos())
+                {
+                    oCliente.NomCliente = txtNombre.Texts;
+                    oCliente.ApeCliente = txtApellido.Texts;
+                    oCliente.dni = Convert.ToInt32(txtDNI.Texts);
 
-                if (saveOK)
-                {
-                    MessageBox.Show("El Cliente se ha registrado con éxito", 
-                        "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarCampos();
+                    var saveOK = await RegistrarClienteAsync(oCliente);
+
+                    if (saveOK)
+                    {
+                        MessageBox.Show("El Cliente se ha Registrado con éxito",
+                            "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Cliente no pudo Registrarse, consulte al Administrador",
+                            "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+            }
+            if (modo.Equals(Action.EDITAR))
+            {
+                if (ValidarCampos())
                 {
-                    MessageBox.Show("El Cliente no pudo registrarse, consulte al Administrador", 
-                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);                  
+                    oCliente.NroCliente = Convert.ToInt32(lblNroClte.Text);
+                    oCliente.NomCliente = txtNombre.Texts;
+                    oCliente.ApeCliente = txtApellido.Texts;
+                    oCliente.dni = Convert.ToInt32(txtDNI.Texts);
+
+                    var upDateOK = await ActualizarClienteAsync(oCliente);
+                    
+                    if (upDateOK)
+                    {
+                        MessageBox.Show("El Cliente se ha Actualizado con éxito",
+                            "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos();
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Cliente no pudo Actualizarse, consulte al Administrador",
+                            "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
-
         //-------------------------------------------------------------------------------------------
         //Métodos HttpClient:
         private async Task<bool> RegistrarClienteAsync(Cliente oCliente)
         {           
             string url = "https://localhost:44317/api/Banco/registro";
+            string json = JsonConvert.SerializeObject(oCliente);
+            var result = await ClienteSingleton.GetInstance().PostAsync(url, json);
+            return result.Equals("true");
+        }
+        //-------------------------------------------------------------------------------------------
+        private async Task<bool> ActualizarClienteAsync(Cliente oCliente)
+        {
+            string url = "https://localhost:44317/api/Banco/actualizar";
             string json = JsonConvert.SerializeObject(oCliente);
             var result = await ClienteSingleton.GetInstance().PostAsync(url, json);
             return result.Equals("true");

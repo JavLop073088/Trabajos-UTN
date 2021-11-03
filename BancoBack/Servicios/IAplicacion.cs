@@ -28,9 +28,11 @@ namespace BancoBack.Servicios
 
         public bool RegistrarTipoCuenta(TipoCuenta oTipo);
 
-<<<<<<< HEAD
         public Cliente ObtenerClienteByNro(int nro);
-=======
->>>>>>> 1f0bafeac1843146325c94e0603c44d14ca062d8
+
+        public bool ActualizarCliente(Cliente oCliente);
+
     }
+
+
 }

@@ -68,5 +68,13 @@ namespace AppBanco.Servicios
         {
             return dao.GetByNro(nro);
         }
+
+        public bool ActualizarCliente(Cliente oCliente)
+        {
+            return dao.SaveModifCliente(oCliente);
+        }
+
     }
+
+
 }

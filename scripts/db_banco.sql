@@ -101,8 +101,8 @@ BEGIN
 END
 
 -------------------------------------------------------
---Cambio Fabri 01/11
-CREATE PROCEDURE SP_LOGIN_ADMINS
+--Cambio  01/11
+ALTER PROCEDURE SP_LOGIN_ADMINS
 	@username VARCHAR(30),
 	@password VARCHAR(30),
 	@retorno INT OUTPUT
@@ -140,7 +140,7 @@ BEGIN
 	GROUP BY YEAR(C.ultimo_mov), MONTH(C.ultimo_mov)
 END
 -------------------------------------------------------
---Cambios Javi 02/11
+--Cambios  02/11
 ALTER PROCEDURE SP_CONSULTAR_CLIENTES
 	@nroClte int,
 	@nomClte varchar(50),
@@ -166,7 +166,7 @@ BEGIN
 	
 END
 -------------------------------------------------------
---Cambios Javi 03/11
+--Cambios  03/11
 CREATE PROCEDURE SP_INSERTAR_TIPOS
 	@nombreTipo varchar(50)
 AS
@@ -176,7 +176,7 @@ BEGIN
 END
 <<<<<<< HEAD
 -------------------------------------------------------
---2do Cambio Javi 03/11
+--2do Cambio  03/11
 CREATE PROCEDURE SP_CONSULTAR_POR_NRO
 	@nro int	
 AS
@@ -191,10 +191,39 @@ END
 exec SP_CONSULTAR_POR_NRO 10
 
 -------------------------------------------------------
-=======
+--3er Cambio  03/11
+CREATE PROCEDURE SP_ACTUALIZAR_CLIENTE
+	@nroClte int,
+	@nomClte varchar(30),
+	@apeClte varchar(30),
+	@dniClte int--,
+	--@fechaBaja datetime
+AS
+BEGIN
+	UPDATE clientes SET nom_cliente = @nomClte WHERE nro_cliente = @nroClte
+	UPDATE clientes SET ape_cliente = @apeClte WHERE nro_cliente = @nroClte
+	UPDATE clientes SET dni_cliente = @dniClte WHERE nro_cliente = @nroClte
+	/*IF(@fechaBaja is not null)
+		UPDATE clientes SET fecha_baja = null WHERE nro_cliente = @nroClte*/
+END
+	 
+CREATE PROCEDURE SP_ACTUALIZAR_CUENTA
+    @cbuCta nvarchar(22),
+	@nroClte int,
+	@saldoCta decimal(30, 2),
+	@idTipoCta int,
+	@ultMov date
+AS
+BEGIN
 
->>>>>>> 1f0bafeac1843146325c94e0603c44d14ca062d8
+	--UPDATE cuentas SET cbu = @cbuCta WHERE nro_cliente = @nroClte
+		UPDATE cuentas SET saldo = @saldoCta WHERE nro_cliente = @nroClte
+		UPDATE cuentas SET id_tipo_cuenta = @idTipoCta WHERE nro_cliente = @nroClte
+		UPDATE cuentas SET ultimo_mov = @ultMov WHERE nro_cliente = @nroClte
+
+END
+*/
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas
-select * from administradores
+select * from administradores*/

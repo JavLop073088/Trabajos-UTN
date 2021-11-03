@@ -24,7 +24,7 @@ namespace AppBanco.Acceso_a_Datos
         private HelperDao()
         {
 
-            cadenaConexion = @"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True";
+            cadenaConexion = @"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True";
             //cadenaConexion = Properties.Resources.strConexion; 
         }
 
@@ -296,8 +296,8 @@ namespace AppBanco.Acceso_a_Datos
                     cnn.Close();
             }
         }
-
-            public bool InsertTipo(string storeName, TipoCuenta oTipo)
+        //-------------------------------------------------------------------------------------------
+        public bool InsertTipo(string storeName, TipoCuenta oTipo)
         {
             cnn = new SqlConnection(cadenaConexion);
             cmd = new SqlCommand();
@@ -313,7 +313,6 @@ namespace AppBanco.Acceso_a_Datos
             catch (Exception)
             {
                 rta = false;
-
             }
             finally
             {
@@ -321,11 +320,61 @@ namespace AppBanco.Acceso_a_Datos
                     cnn.Close();
             }
 
-
-            cnn = new SqlConnection();
-
             return rta;
-
         }
+        //-------------------------------------------------------------------------------------------
+        public bool Update(string spMaestro, string spDetalle, Cliente oCliente)
+        {
+            cnn = new SqlConnection(cadenaConexion);
+
+            bool resultado = true;
+            try
+            {               
+                cnn.Open();
+                trans = cnn.BeginTransaction();
+
+                SqlCommand cmdMaestro = new SqlCommand(spMaestro, cnn, trans);
+                cmdMaestro.CommandType = CommandType.StoredProcedure;
+                cmdMaestro.Parameters.AddWithValue("@nroClte", oCliente.NroCliente);
+                cmdMaestro.Parameters.AddWithValue("@nomClte", oCliente.NomCliente);
+                cmdMaestro.Parameters.AddWithValue("@apeClte", oCliente.ApeCliente);
+                cmdMaestro.Parameters.AddWithValue("@dniClte", oCliente.dni);
+                //cmdMaestro.Parameters.AddWithValue("@fechaBaja", oCliente.FechaBaja);
+
+                cmdMaestro.ExecuteNonQuery();
+            
+                foreach (Cuenta cta in oCliente.Cartera)
+                {
+                    SqlCommand cmdDetalle = new SqlCommand(spDetalle, cnn, trans);
+                    cmdDetalle.CommandType = CommandType.StoredProcedure;
+
+                    cmdDetalle.Parameters.AddWithValue("@cbuCta", cta.Cbu);
+                    cmdDetalle.Parameters.AddWithValue("@nroClte", oCliente.NroCliente);
+                    cmdDetalle.Parameters.AddWithValue("@saldoCta", cta.Saldo);
+                    cmdDetalle.Parameters.AddWithValue("@idTipoCta", cta.TipoCta.IdTipo);
+                    cmdDetalle.Parameters.AddWithValue("@ultMov", cta.UltimoMov);
+                    cmdDetalle.ExecuteNonQuery();
+                }
+
+                trans.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                trans.Rollback();
+                resultado = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return resultado;
+        }
+        //-------------------------------------------------------------------------------------------
+
     }
+
 }
