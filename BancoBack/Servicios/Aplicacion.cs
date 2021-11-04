@@ -59,9 +59,9 @@ namespace AppBanco.Servicios
             return dao.GetByFiltersAdmins(oAdmin);
         }
 
-        public Administrador ObtenerAdminByNro(int idAdmin)
+        public Administrador ObtenerAdminByNro(List<Parametro> filtros)
         {
-            return dao.GetByNroAdmin(idAdmin);
+            return dao.GetByNroAdmin(filtros);
         }
 
         public bool RegistrarBajaCliente(int numeroClte)
@@ -82,6 +82,11 @@ namespace AppBanco.Servicios
         public bool ActualizarCliente(Cliente oCliente)
         {
             return dao.SaveModifCliente(oCliente);
+        }
+
+        public bool ActualizarAdmin(Administrador oAdministrador)
+        {
+            return dao.SaveModifAdmin(oAdministrador);
         }
 
     }

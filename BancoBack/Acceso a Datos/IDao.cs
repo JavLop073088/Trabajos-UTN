@@ -25,7 +25,7 @@ namespace AppBanco.Acceso_a_Datos
         public List<Cliente> GetByFilters(List<Parametro> criterios);
 
         public int GetByFiltersAdmins(Administrador oAdmin);
-        public Administrador GetByNroAdmin(int nro);
+        public Administrador GetByNroAdmin(List<Parametro> filtros);
 
         public bool SaveBajaCliente(int numeroClte);
 
@@ -34,6 +34,8 @@ namespace AppBanco.Acceso_a_Datos
         public Cliente GetByNro(int nro);
 
         public bool SaveModifCliente(Cliente oCliente);
+
+        public bool SaveModifAdmin(Administrador oAdministrador);
 
     }
 

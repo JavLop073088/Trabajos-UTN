@@ -297,7 +297,7 @@ namespace AppBanco.Acceso_a_Datos
             }
         }
         //-------------------------------------------------------------------------------------------
-        public Administrador SelectByNroAdmin(string storeName, int idAdmin)
+        public Administrador SelectByNroAdmin(string storeName, List<Parametro> filtros)
         {
             cnn = new SqlConnection(cadenaConexion);
             cmd = new SqlCommand();
@@ -307,7 +307,7 @@ namespace AppBanco.Acceso_a_Datos
                 cnn.Open();
                 cmd = new SqlCommand(storeName, cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idAdmin", idAdmin);
+                cmd.Parameters.AddWithValue("@idAdmin", filtros);
                 reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -406,7 +406,41 @@ namespace AppBanco.Acceso_a_Datos
             return resultado;
         }
         //-------------------------------------------------------------------------------------------
+        public bool UpdateAdmin(string spMaestro, Administrador oAdministrador)
+        {
+            cnn = new SqlConnection(cadenaConexion);
 
+            bool resultado = true;
+            try
+            {
+                cnn.Open();
+                trans = cnn.BeginTransaction();
+
+                SqlCommand cmdMaestro = new SqlCommand(spMaestro, cnn, trans);
+                cmdMaestro.CommandType = CommandType.StoredProcedure;
+                cmdMaestro.Parameters.AddWithValue("@idAdmin", oAdministrador.IdAdmin);
+                cmdMaestro.Parameters.AddWithValue("@passAdmin", oAdministrador.PassAdmin);
+                //cmdMaestro.Parameters.AddWithValue("@fechaBaja", oCliente.FechaBaja);
+
+                cmdMaestro.ExecuteNonQuery();
+
+                trans.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                trans.Rollback();
+                resultado = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return resultado;
+        }
     }
 
 }

@@ -252,6 +252,19 @@ AS
 	BEGIN
 		SELECT * FROM administradores WHERE id_admin = @idAdmin
 	END
+EXEC SP_CONSULTAR_POR_NRO_ADMIN 2
+----------------------------------------------------------------------------------------
+CREATE PROCEDURE SP_UPDATE_ADMIN
+@idAdmin INT,
+@passAdmin VARCHAR(30)
+AS
+	BEGIN
+		-- Podria hacerse con un Trigger que compare la tabla inserted y deleted las password nueva y vieja, en caso de = de Rollback
+		UPDATE administradores
+		SET
+			pass_admin = @passAdmin
+		WHERE id_admin = @idAdmin
+	END
 
 select * from clientes
 select * from cuentas

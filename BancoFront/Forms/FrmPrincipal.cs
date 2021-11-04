@@ -24,6 +24,7 @@ namespace AppBanco.Forms
         private Panel leftBorderBtn;
         private Form formHijoActual;
         private int idAdmininstrador;
+        private Administrador oAdministrador = new Administrador();
 
         // Constructor
         public FrmPrincipal(int idAdmin)
@@ -37,6 +38,7 @@ namespace AppBanco.Forms
             ActivateButton(btnHome, RGBColors.color1);
             AbrirFormHijo(new FrmInicio());
             idAdmininstrador = idAdmin;
+            CargarLabel();
         }
 
         // Structs
@@ -51,18 +53,28 @@ namespace AppBanco.Forms
         }
 
         // Methods
-        private async Task MostrarAdminAsync(int idAdmin)
+        private async void CargarLabel()
         {
-            List<Parametro> filtros = new List<Parametro>();
-            filtros.Add(new Parametro("@username", idAdmin));
-            await ConsultarAdminAsync(filtros);
+            oAdministrador = await MostrarAdminAsync(idAdmininstrador);
+            lblUsuario.Text = oAdministrador.NomAdmin;
         }
 
-        private async Task ConsultarAdminAsync(List<Parametro> filtros)
+        private async Task<Administrador> MostrarAdminAsync(int idAdmin)
         {
+            List<Parametro> filtros = new List<Parametro>();
+            filtros.Add(new Parametro("@idAdmin", idAdmin));
+            Administrador oAdmin = await ConsultarAdminAsync(filtros);
+            return oAdmin;
+        }
+
+        // Similar a consultaParam
+        private async Task<Administrador> ConsultarAdminAsync(List<Parametro> filtros)
+        {
+            string filtrosJson = JsonConvert.SerializeObject(filtros);
             string url = "https://localhost:44317/api/Banco/admin";
-            var data = await ClienteSingleton.GetInstance().GetAsync(url);
-            List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
+            var resultado = await ClienteSingleton.GetInstance().PostAsync(url, filtrosJson);
+            Administrador oAdmin = JsonConvert.DeserializeObject<Administrador>(resultado);
+            return oAdmin;
         }
 
         private void ActivateButton(object senderBtn, Color color)
@@ -130,7 +142,7 @@ namespace AppBanco.Forms
         private void btnAjustesCuenta_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            AbrirFormHijo(new FrmAjustesCuenta());
+            AbrirFormHijo(new FrmAjustesCuenta(oAdministrador));
         }
 
         private void btnGraficos_Click(object sender, EventArgs e)
@@ -143,9 +155,9 @@ namespace AppBanco.Forms
         
 
         // Abrir formularios hijos dentro
-        private void AbrirFormHijo(Form formHijo)
+        private async void AbrirFormHijo(Form formHijo)
         {
-            if(formHijoActual != null)
+            if (formHijoActual != null)
             {
                 formHijoActual.Close();
             }
@@ -202,7 +214,7 @@ namespace AppBanco.Forms
             //Error al tratar de referenciar el Form:
             //The ReportViewer controls pre-date .NET Core and there are several missing capabilities that the ReportViewer requires,
             //unfortunately at this time this scenario is not supported.
-            //FrmReportes reporte = new FrmReportes ();
+            //FrmReportes reporte = new FrmReportes();
             //reporte.ShowDialog();
         }
     }

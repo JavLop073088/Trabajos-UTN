@@ -26,7 +26,7 @@ namespace BancoBack.Servicios
 
         public int ConsultarAdmins(Administrador oAdmin);
 
-        public Administrador ObtenerAdminByNro(int idAdmin);
+        public Administrador ObtenerAdminByNro(List<Parametro> filtros);
 
         public bool RegistrarBajaCliente(int numeroClte);
 
@@ -35,6 +35,8 @@ namespace BancoBack.Servicios
         public Cliente ObtenerClienteByNro(int nro);
 
         public bool ActualizarCliente(Cliente oCliente);
+
+        public bool ActualizarAdmin(Administrador oAdministrador);
 
     }
 

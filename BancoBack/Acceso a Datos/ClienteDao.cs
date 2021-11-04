@@ -140,9 +140,18 @@ namespace AppBanco.Acceso_a_Datos
             return HelperDao.ObtenerInstancia().SelectByNro("SP_CONSULTAR_POR_NRO", nro);
         }
         //-------------------------------------------------------------------------------------------
-        public Administrador GetByNroAdmin(int nro)
+        public Administrador GetByNroAdmin(List<Parametro> filtros)
         {
-            return HelperDao.ObtenerInstancia().SelectByNroAdmin("SP_CONSULTAR_POR_NRO_ADMIN", nro);
+            Administrador oAdmin = new Administrador();
+            DataTable tabla = HelperDao.ObtenerInstancia().ConsultaTablaParam("SP_CONSULTAR_POR_NRO_ADMIN", filtros);
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                oAdmin.IdAdmin = Convert.ToInt32(row["id_admin"].ToString());
+                oAdmin.NomAdmin = row["nom_admin"].ToString();
+            }
+
+            return oAdmin;
         }
         //-------------------------------------------------------------------------------------------
         public bool SaveModifCliente(Cliente oCliente)
@@ -150,6 +159,10 @@ namespace AppBanco.Acceso_a_Datos
             return HelperDao.ObtenerInstancia().Update("SP_ACTUALIZAR_CLIENTE", "SP_ACTUALIZAR_CUENTA", oCliente);
         }
         //-------------------------------------------------------------------------------------------
+        public bool SaveModifAdmin(Administrador oAdministrador)
+        {
+            return HelperDao.ObtenerInstancia().UpdateAdmin("SP_UPDATE_ADMIN", oAdministrador);
+        }
 
     }
 

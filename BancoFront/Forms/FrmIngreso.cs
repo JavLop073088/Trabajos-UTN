@@ -121,8 +121,8 @@ namespace AppBanco.Forms
             if(idAdmin > 0)
             {
                 // Abrir Form Principal
-                this.Hide();
                 FrmPrincipal principal = new FrmPrincipal(idAdmin);
+                this.Hide();
                 principal.ShowDialog();
                 this.Close();
             } else

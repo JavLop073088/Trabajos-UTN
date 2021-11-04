@@ -84,6 +84,18 @@ namespace BancoWebAPI.Controllers
             return BadRequest("Se requiere número de Cliente");
         }
         //-----------------------------------------------------
+        [HttpPost("actualizarAdmin")]
+        public IActionResult PostActualizarAdmin(Administrador oAdministrador)
+        {
+            if (oAdministrador != null)
+            {
+                bool result = app.ActualizarAdmin(oAdministrador);
+                return Ok(result);
+            }
+
+            return BadRequest("Se requiere número de Administrador");
+        }
+        //-----------------------------------------------------
         [HttpPost("altatipo")]
         public IActionResult PostTipo(TipoCuenta oTipo)
         {
@@ -114,12 +126,12 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ConsultarAdmins(oAdmin));
         }
         //-----------------------------------------------------  
-        [HttpGet("admin")]
-        public IActionResult GetAdmin(int idAdmin)
+        [HttpPost("admin")]
+        public IActionResult GetAdmin(List<Parametro> filtros)
         {
-            if (idAdmin == 0)
+            if (filtros == null || filtros.Count == 0)
                 return BadRequest("Se requiere ID de Admin");
-            return Ok(app.ObtenerAdminByNro(idAdmin));
+            return Ok(app.ObtenerAdminByNro(filtros));
         }
         //-----------------------------------------------------   
         [HttpDelete("{numeroClte}")]
