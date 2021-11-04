@@ -38,8 +38,8 @@ namespace AppBanco.Acceso_a_Datos
             foreach (DataRow row in t.Rows)
             {
                 Revenue oIngresos = new Revenue();
-                oIngresos.Year = Convert.ToInt32(row["years"].ToString());
-                oIngresos.Value = Convert.ToInt32(row["total"].ToString());
+                oIngresos.Value = Convert.ToInt32(row["cantidad"].ToString());
+                oIngresos.Tipo = row["tipo_cuenta"].ToString();
 
                 lst.Add(oIngresos);
             }
@@ -57,6 +57,24 @@ namespace AppBanco.Acceso_a_Datos
                 oIngresos.Year = Convert.ToInt32(row["years"].ToString());
                 oIngresos.Month = Convert.ToInt32(row["months"].ToString());
                 oIngresos.Value = Convert.ToDouble(row["total"].ToString());
+
+                lst.Add(oIngresos);
+            }
+            return lst;
+        }
+        //-------------------------------------------------------------------------------------------
+        public List<Revenue> GetGraficoDashboard()
+        {
+            List<Revenue> lst = new List<Revenue>();
+            DataTable t = HelperDao.ObtenerInstancia().ConsultaTabla("SP_DASHBOARD");
+
+            foreach (DataRow row in t.Rows)
+            {
+                Revenue oIngresos = new Revenue();
+                oIngresos.Year = Convert.ToInt32(row["cantidad_admins"].ToString());
+                oIngresos.Month = Convert.ToInt32(row["cantidad_clientes"].ToString());
+                oIngresos.Cantidad = Convert.ToInt32(row["cantidad_cuentas"].ToString());
+                oIngresos.Value = Convert.ToDouble(row["monto_total"].ToString());
 
                 lst.Add(oIngresos);
             }
@@ -98,14 +116,13 @@ namespace AppBanco.Acceso_a_Datos
         //-------------------------------------------------------------------------------------------
         public int GetByFiltersAdmins(Administrador oAdmin)
         {
-            int res = 0;
             SqlParameter param = HelperDao.ObtenerInstancia().ConsultarAdministrador("SP_LOGIN_ADMINS", "@retorno", oAdmin);
-            if (param.Equals(DBNull.Value))
+            if (param.Value.Equals(DBNull.Value))
             {
-                res = 0;
+                return 0;
             }
 
-            return res = Convert.ToInt32(param.Value);
+            return Convert.ToInt32(param.Value);
         }
         //-------------------------------------------------------------------------------------------
         public bool SaveBajaCliente(int numeroClte)
@@ -121,6 +138,11 @@ namespace AppBanco.Acceso_a_Datos
         public Cliente GetByNro(int nro)
         {      
             return HelperDao.ObtenerInstancia().SelectByNro("SP_CONSULTAR_POR_NRO", nro);
+        }
+        //-------------------------------------------------------------------------------------------
+        public Administrador GetByNroAdmin(int nro)
+        {
+            return HelperDao.ObtenerInstancia().SelectByNroAdmin("SP_CONSULTAR_POR_NRO_ADMIN", nro);
         }
         //-------------------------------------------------------------------------------------------
         public bool SaveModifCliente(Cliente oCliente)

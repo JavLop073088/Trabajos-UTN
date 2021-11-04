@@ -116,13 +116,13 @@ namespace AppBanco.Forms
             Administrador admin = new Administrador();
             admin.NomAdmin = rjTxtUsername.Texts;
             admin.PassAdmin = rjTxtPassword.Texts;
-            int res = await CargarConsultaAdmin(admin);
+            int idAdmin = await CargarConsultaAdmin(admin);
 
-            if(res == 1)
+            if(idAdmin > 0)
             {
                 // Abrir Form Principal
                 this.Hide();
-                FrmPrincipal principal = new FrmPrincipal();
+                FrmPrincipal principal = new FrmPrincipal(idAdmin);
                 principal.ShowDialog();
                 this.Close();
             } else

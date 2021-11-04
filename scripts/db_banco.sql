@@ -47,7 +47,19 @@ GO
 --Insertar el Cliente 1 para que no genere error el SP que busca el número de Cliente
 SET DATEFORMAT DMY
 insert into clientes values ('Carlos','Torres',19236854,null)
-insert into cuentas values ('2256685987457125469325',1,40000,1,'28/10/2021')
+insert into cuentas 
+values 
+	('2256685647457125469325',1,80000,1,'03/03/2020'),
+	('2256611247457125469325',1,50000,1,'06/08/2020'),
+	('2256685247437145469325',2,71000,1,'01/02/2020'),
+	('2211685247457125469325',2,2000,1,'12/10/2020'),
+	('2256685247887125469324',1,210000,1,'28/07/2020'),
+	('2256685247357125469322',1,30000,1,'21/09/2019'),
+	('2256685247457125469321',2,20000,1,'11/01/2019'),
+	('2256685247457125469322',2,10000,1,'10/12/2019'),
+	('2256685247457125469323',2,10000,1,'10/05/2019'),
+	('2256685247457125469324',2,10000,1,'08/11/2019'),
+	('2256685231357125469322',1,230000,1,'21/05/2019')
 
 insert into administradores (nom_admin, pass_admin) 
 values
@@ -109,13 +121,13 @@ ALTER PROCEDURE SP_LOGIN_ADMINS
 AS
 BEGIN
 	SELECT
-		@retorno = COUNT(*)
+		@retorno = id_admin
 	FROM administradores
 	WHERE nom_admin = @username
 	AND pass_admin = @password
 END
 DECLARE @resultado int
-EXEC SP_LOGIN_ADMINS 'CaroKuba', '112927', @resultado output
+EXEC SP_LOGIN_ADMINS 'FabriLoPresti', '112713', @resultado output
 SELECT @resultado
 -------------------------------------------------------
 
@@ -123,10 +135,11 @@ CREATE PROCEDURE SP_GRAFICO_TORTA
 AS
 BEGIN
 	SELECT
-		YEAR(C.ultimo_mov) AS 'years',
-		COUNT(C.id_tipo_cuenta) AS 'total'
-	FROM cuentas C
-	GROUP BY YEAR(C.ultimo_mov)
+		COUNT(C.id_tipo_cuenta) as 'cantidad',
+		TC.nom_tipo AS 'tipo_cuenta'
+	FROM tipo_cuentas TC
+	INNER JOIN cuentas C ON TC.id_tipo_cuenta = C.id_tipo_cuenta
+	GROUP BY TC.nom_tipo
 END
 
 CREATE PROCEDURE SP_GRAFICO_CARTESIANO
@@ -139,6 +152,16 @@ BEGIN
 	FROM cuentas C
 	GROUP BY YEAR(C.ultimo_mov), MONTH(C.ultimo_mov)
 END
+
+CREATE PROCEDURE SP_DASHBOARD
+AS
+	BEGIN
+		SELECT
+			(SELECT COUNT(*) FROM administradores) AS 'cantidad_admins' ,
+			(SELECT COUNT(*) FROM clientes) AS 'cantidad_clientes',
+			(SELECT COUNT(*) FROM cuentas) AS 'cantidad_cuentas',
+			(SELECT SUM(saldo) FROM cuentas) AS 'monto_total'
+	END
 -------------------------------------------------------
 --Cambios  02/11
 ALTER PROCEDURE SP_CONSULTAR_CLIENTES
@@ -174,7 +197,7 @@ BEGIN
 	INSERT INTO tipo_cuentas
 		VALUES(@nombreTipo)
 END
-<<<<<<< HEAD
+
 -------------------------------------------------------
 --2do Cambio  03/11
 CREATE PROCEDURE SP_CONSULTAR_POR_NRO
@@ -188,7 +211,7 @@ BEGIN
 	AND t1.nro_cliente = @nro;
 END
 
-exec SP_CONSULTAR_POR_NRO 10
+exec SP_CONSULTAR_POR_NRO 1
 
 -------------------------------------------------------
 --3er Cambio  03/11
@@ -220,10 +243,17 @@ BEGIN
 		UPDATE cuentas SET saldo = @saldoCta WHERE nro_cliente = @nroClte
 		UPDATE cuentas SET id_tipo_cuenta = @idTipoCta WHERE nro_cliente = @nroClte
 		UPDATE cuentas SET ultimo_mov = @ultMov WHERE nro_cliente = @nroClte
-
 END
-*/
+
+----------------------------------------------------------------------------------------
+CREATE PROCEDURE SP_CONSULTAR_POR_NRO_ADMIN
+@idAdmin INT
+AS
+	BEGIN
+		SELECT * FROM administradores WHERE id_admin = @idAdmin
+	END
+
 select * from clientes
 select * from cuentas
 select * from tipo_cuentas
-select * from administradores*/
+select * from administradores

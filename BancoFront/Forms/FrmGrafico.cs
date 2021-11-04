@@ -44,11 +44,8 @@ namespace AppBanco.Forms
 
             // Grafico Torta
             await CargarTortaAsync();
-        }
-
-        private async void btnConsultar_Click_1(object sender, EventArgs e)
-        {
             await CargarCartesiano();
+            await CargarDashBoard();
         }
 
         //-------------------------------------------------------------------------------------------
@@ -68,6 +65,14 @@ namespace AppBanco.Forms
             List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
             MostrarGraficoCartesiano(lst);
         }
+
+        private async Task CargarDashBoard()
+        {
+            string url = "https://localhost:44317/api/Banco/dashboard";
+            var data = await ClienteSingleton.GetInstance().GetAsync(url);
+            List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
+            MostrarDashboard(lst);
+        }
         //-------------------------------------------------------------------------------------------
         //Métodos Auxiliares:
         private void MostrarGraficoTorta(List<Revenue> lst)
@@ -79,7 +84,7 @@ namespace AppBanco.Forms
             SeriesCollection series = new SeriesCollection();
             foreach (var obj in lst)
             {
-                series.Add(new PieSeries() { Title = obj.Year.ToString(), Values = new ChartValues<double> { obj.Value }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = obj.Tipo.ToString(), Values = new ChartValues<double> { obj.Value }, DataLabels = true, LabelPoint = labelPoint });
             }
             pieChart2.Series = series;
         }
@@ -110,6 +115,17 @@ namespace AppBanco.Forms
                 series.Add(new LineSeries() { Title = year.Year.ToString(), Values = new ChartValues<double>(values) });
             }
             cartesianChart1.Series = series;
+        }
+
+        private void MostrarDashboard(List<Revenue> lst)
+        {
+            foreach (var oIngreso in lst)
+            {
+                lblCantidadAdmins.Text = oIngreso.Year.ToString();
+                lblCantidadClientes.Text = oIngreso.Month.ToString();
+                lblCantidadCuentas.Text = oIngreso.Cantidad.ToString();
+                lblMontoTotal.Text = oIngreso.Value.ToString();
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ namespace AppBanco.Acceso_a_Datos
         private HelperDao()
         {
 
-            cadenaConexion = @"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True";
+            cadenaConexion = @"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True";
             //cadenaConexion = Properties.Resources.strConexion; 
         }
 
@@ -295,6 +295,38 @@ namespace AppBanco.Acceso_a_Datos
                 if (cnn != null && cnn.State == ConnectionState.Open)
                     cnn.Close();
             }
+        }
+        //-------------------------------------------------------------------------------------------
+        public Administrador SelectByNroAdmin(string storeName, int idAdmin)
+        {
+            cnn = new SqlConnection(cadenaConexion);
+            cmd = new SqlCommand();
+            Administrador oAdministrador = new Administrador();
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(storeName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idAdmin", idAdmin);
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    oAdministrador.IdAdmin = Convert.ToInt32(reader["id_admin"].ToString());
+                    oAdministrador.NomAdmin = reader["nom_admin"].ToString();
+                    oAdministrador.PassAdmin = reader["pass_admin"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return oAdministrador;
         }
         //-------------------------------------------------------------------------------------------
         public bool InsertTipo(string storeName, TipoCuenta oTipo)

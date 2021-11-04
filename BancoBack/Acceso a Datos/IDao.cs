@@ -16,6 +16,8 @@ namespace AppBanco.Acceso_a_Datos
 
         public List<Revenue> GetGraficoCartesiano();
 
+        public List<Revenue> GetGraficoDashboard();
+
         public bool SaveCliente(Cliente oCliente);
 
         public int NextNumCliente();
@@ -23,6 +25,7 @@ namespace AppBanco.Acceso_a_Datos
         public List<Cliente> GetByFilters(List<Parametro> criterios);
 
         public int GetByFiltersAdmins(Administrador oAdmin);
+        public Administrador GetByNroAdmin(int nro);
 
         public bool SaveBajaCliente(int numeroClte);
 

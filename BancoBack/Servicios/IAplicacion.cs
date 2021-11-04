@@ -16,6 +16,8 @@ namespace BancoBack.Servicios
 
         public List<Revenue> ConsultarGraficoCartesiano();
 
+        public List<Revenue> ConsultarDashboard();
+
         public bool RegistrarCliente(Cliente oCliente);
 
         public int ProximoNroCliente();
@@ -23,6 +25,8 @@ namespace BancoBack.Servicios
         public List<Cliente> ConsultarClientes(List<Parametro> criterios);
 
         public int ConsultarAdmins(Administrador oAdmin);
+
+        public Administrador ObtenerAdminByNro(int idAdmin);
 
         public bool RegistrarBajaCliente(int numeroClte);
 

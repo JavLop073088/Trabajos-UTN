@@ -9,6 +9,7 @@
 	<ItemGroup>
 		<PackageReference Include="FontAwesome.Sharp" Version="5.15.3" />
 		<PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
+		<PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1484.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 

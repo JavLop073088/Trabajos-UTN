@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BancoBack.Dominio;
+using BancoBack.Servicios;
+using BancoFront.Client;
 using FontAwesome.Sharp;
+using Newtonsoft.Json;
 using Reportes;
 
 
@@ -19,9 +23,10 @@ namespace AppBanco.Forms
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form formHijoActual;
+        private int idAdmininstrador;
 
         // Constructor
-        public FrmPrincipal()
+        public FrmPrincipal(int idAdmin)
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
@@ -31,6 +36,7 @@ namespace AppBanco.Forms
             // Iniciar en Home
             ActivateButton(btnHome, RGBColors.color1);
             AbrirFormHijo(new FrmInicio());
+            idAdmininstrador = idAdmin;
         }
 
         // Structs
@@ -45,6 +51,20 @@ namespace AppBanco.Forms
         }
 
         // Methods
+        private async Task MostrarAdminAsync(int idAdmin)
+        {
+            List<Parametro> filtros = new List<Parametro>();
+            filtros.Add(new Parametro("@username", idAdmin));
+            await ConsultarAdminAsync(filtros);
+        }
+
+        private async Task ConsultarAdminAsync(List<Parametro> filtros)
+        {
+            string url = "https://localhost:44317/api/Banco/admin";
+            var data = await ClienteSingleton.GetInstance().GetAsync(url);
+            List<Revenue> lst = JsonConvert.DeserializeObject<List<Revenue>>(data);
+        }
+
         private void ActivateButton(object senderBtn, Color color)
         {
             if(senderBtn != null)
@@ -119,6 +139,9 @@ namespace AppBanco.Forms
             AbrirFormHijo(new FrmGrafico());
         }
 
+        // Metodos
+        
+
         // Abrir formularios hijos dentro
         private void AbrirFormHijo(Form formHijo)
         {
@@ -181,8 +204,6 @@ namespace AppBanco.Forms
             //unfortunately at this time this scenario is not supported.
             //FrmReportes reporte = new FrmReportes ();
             //reporte.ShowDialog();
-            
-
         }
     }
 }

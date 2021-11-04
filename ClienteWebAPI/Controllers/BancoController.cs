@@ -40,6 +40,12 @@ namespace BancoWebAPI.Controllers
             return Ok(app.ConsultarGraficoCartesiano());
         }
         //-----------------------------------------------------
+        [HttpGet("dashboard")]
+        public IActionResult GetDashboard()
+        {
+            return Ok(app.ConsultarDashboard());
+        }
+        //-----------------------------------------------------
         [HttpGet("numero")]
         public IActionResult GetNumero()
         {
@@ -106,6 +112,14 @@ namespace BancoWebAPI.Controllers
                 return BadRequest("Se requiere una lista de parámetros!");
 
             return Ok(app.ConsultarAdmins(oAdmin));
+        }
+        //-----------------------------------------------------  
+        [HttpGet("admin")]
+        public IActionResult GetAdmin(int idAdmin)
+        {
+            if (idAdmin == 0)
+                return BadRequest("Se requiere ID de Admin");
+            return Ok(app.ObtenerAdminByNro(idAdmin));
         }
         //-----------------------------------------------------   
         [HttpDelete("{numeroClte}")]

@@ -34,6 +34,11 @@ namespace AppBanco.Servicios
             return dao.GetGraficoCartesiano();
         }
 
+        public List<Revenue> ConsultarDashboard()
+        {
+            return dao.GetGraficoDashboard();
+        }
+
         public int ProximoNroCliente()
         {
             return dao.NextNumCliente();
@@ -52,6 +57,11 @@ namespace AppBanco.Servicios
         public int ConsultarAdmins(Administrador oAdmin)
         {
             return dao.GetByFiltersAdmins(oAdmin);
+        }
+
+        public Administrador ObtenerAdminByNro(int idAdmin)
+        {
+            return dao.GetByNroAdmin(idAdmin);
         }
 
         public bool RegistrarBajaCliente(int numeroClte)
