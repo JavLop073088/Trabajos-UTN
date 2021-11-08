@@ -77,12 +77,18 @@ namespace AppBanco.Forms
             }
             if (dgvTipoCuentas.CurrentCell.ColumnIndex == 3)//btnEliminar
             {
-                ok = await EliminarTipoAsync(idTipo);
-                if (ok) MessageBox.Show("Tipo de Cuenta Eliminada con éxito",
-                     "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("El Tipo de Cuenta no pudo Eliminarse",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (MessageBox.Show("Seguro que desea Eliminar el Tipo de Cuenta?",
+                                    "Confirmación", MessageBoxButtons.YesNo, 
+                                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ok = await EliminarTipoAsync(idTipo);
+
+                    if (ok) MessageBox.Show("Tipo de Cuenta Eliminada con éxito",
+                         "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("El Tipo de Cuenta no pudo Eliminarse",
+                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }                   
             }
             dgvTipoCuentas.Rows.Clear();
             LlenarGrilla();

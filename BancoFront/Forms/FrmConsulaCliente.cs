@@ -110,8 +110,7 @@ namespace AppBanco.Forms
                 FrmAltaCliente form = new FrmAltaCliente(Action.EDITAR, nroClte);
                 form.ShowDialog();
 
-            }
-            LimpiarCampos();
+            }           
         }
         //-------------------------------------------------------------------------------------------
         private void dgvResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -121,8 +120,7 @@ namespace AppBanco.Forms
                 int nroClte = Convert.ToInt32(dgvResultados.CurrentRow.Cells["ColNro"].Value.ToString());
                 FrmAltaCliente form = new FrmAltaCliente(Action.VER,nroClte);
                 form.ShowDialog();
-            }
-            LimpiarCampos();
+            }            
         }
         //-------------------------------------------------------------------------------------------
         //Métodos HttpClient:
