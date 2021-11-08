@@ -98,6 +98,7 @@ namespace AppBanco.Forms
                                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            LimpiarCampos();
         }
         //-------------------------------------------------------------------------------------------
         private void btnEditar_Click(object sender, EventArgs e)
@@ -110,6 +111,7 @@ namespace AppBanco.Forms
                 form.ShowDialog();
 
             }
+            LimpiarCampos();
         }
         //-------------------------------------------------------------------------------------------
         private void dgvResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -120,6 +122,7 @@ namespace AppBanco.Forms
                 FrmAltaCliente form = new FrmAltaCliente(Action.VER,nroClte);
                 form.ShowDialog();
             }
+            LimpiarCampos();
         }
         //-------------------------------------------------------------------------------------------
         //Métodos HttpClient:

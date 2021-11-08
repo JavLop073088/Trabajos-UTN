@@ -219,18 +219,16 @@ CREATE PROCEDURE SP_ACTUALIZAR_CLIENTE
 	@nroClte int,
 	@nomClte varchar(30),
 	@apeClte varchar(30),
-	@dniClte int--,
-	--@fechaBaja datetime
+	@dniClte int
 AS
 BEGIN
 	UPDATE clientes SET nom_cliente = @nomClte WHERE nro_cliente = @nroClte
 	UPDATE clientes SET ape_cliente = @apeClte WHERE nro_cliente = @nroClte
 	UPDATE clientes SET dni_cliente = @dniClte WHERE nro_cliente = @nroClte
-	/*IF(@fechaBaja is not null)
-		UPDATE clientes SET fecha_baja = null WHERE nro_cliente = @nroClte*/
+	
 END
 	 
-CREATE PROCEDURE SP_ACTUALIZAR_CUENTA
+ALTER PROCEDURE SP_ACTUALIZAR_CUENTA
     @cbuCta nvarchar(22),
 	@nroClte int,
 	@saldoCta decimal(30, 2),
@@ -238,11 +236,18 @@ CREATE PROCEDURE SP_ACTUALIZAR_CUENTA
 	@ultMov date
 AS
 BEGIN
-
-	--UPDATE cuentas SET cbu = @cbuCta WHERE nro_cliente = @nroClte
-		UPDATE cuentas SET saldo = @saldoCta WHERE nro_cliente = @nroClte
-		UPDATE cuentas SET id_tipo_cuenta = @idTipoCta WHERE nro_cliente = @nroClte
-		UPDATE cuentas SET ultimo_mov = @ultMov WHERE nro_cliente = @nroClte
+	IF (@cbuCta = ANY (SELECT cbu FROM cuentas))
+	begin
+		DELETE cuentas WHERE nro_cliente = @nroClte
+		INSERT INTO cuentas (cbu, nro_cliente, saldo, id_tipo_cuenta, ultimo_mov)
+		VALUES (@cbuCta, @nroClte, @saldoCta, @idTipoCta, @ultMov)
+	end
+	ELSE
+	begin
+		INSERT INTO cuentas (cbu, nro_cliente, saldo, id_tipo_cuenta, ultimo_mov)
+		VALUES (@cbuCta, @nroClte, @saldoCta, @idTipoCta, @ultMov)
+	end
+	
 END
 
 ----------------------------------------------------------------------------------------

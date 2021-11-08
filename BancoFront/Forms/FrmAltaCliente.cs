@@ -100,12 +100,15 @@ namespace AppBanco.Forms
         //-------------------------------------------------------------------------------------------
         private void dgvCuentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvCuentas.CurrentCell.ColumnIndex == 5)
+            if(modo != Action.VER)
             {
-                oCliente.QuitarCuenta(dgvCuentas.CurrentRow.Index);
-                dgvCuentas.Rows.Remove(dgvCuentas.CurrentRow);
-                CalcularTotalCartera();
-            }
+                if (dgvCuentas.CurrentCell.ColumnIndex == 5)
+                {
+                    oCliente.QuitarCuenta(dgvCuentas.CurrentRow.Index);
+                    dgvCuentas.Rows.Remove(dgvCuentas.CurrentRow);
+                    CalcularTotalCartera();
+                }
+            }          
         }
         //-------------------------------------------------------------------------------------------
         private async void btnAceptar_ClickAsync(object sender, EventArgs e)
@@ -298,11 +301,10 @@ namespace AppBanco.Forms
         //-------------------------------------------------------------------------------------------
         private void BloquearCampos()
         {
-            gpBoxCartera.Enabled = false;
             gpBoxCliente.Enabled = false;
             spBoxCuenta.Enabled = false;
             btnAceptar.Enabled = false;
-            btnCancelar.Enabled = false;
+            btnCancelar.Enabled = false;                     
         }
         //-------------------------------------------------------------------------------------------
     }
