@@ -127,7 +127,7 @@ namespace AppBanco.Acceso_a_Datos
         //-------------------------------------------------------------------------------------------
         public bool SaveBajaCliente(int numeroClte)
         {
-            return HelperDao.ObtenerInstancia().DeleteById("SP_REGISTRAR_BAJA", numeroClte);
+            return HelperDao.ObtenerInstancia().DeleteById("SP_REGISTRAR_BAJA", numeroClte, "@nroClte");
         }
         //-------------------------------------------------------------------------------------------
         public bool SaveTipoCuenta(TipoCuenta oTipo)
@@ -163,7 +163,17 @@ namespace AppBanco.Acceso_a_Datos
         {
             return HelperDao.ObtenerInstancia().UpdateAdmin("SP_UPDATE_ADMIN", oAdministrador);
         }
-
+        //-------------------------------------------------------------------------------------------
+        public bool UpdateTipoCuenta(TipoCuenta oTipo)
+        {
+            return HelperDao.ObtenerInstancia().UpdateTipoCuentas("SP_UPDATE_TIPOS", oTipo);
+        }
+        //-------------------------------------------------------------------------------------------
+        public bool DeleteTipoCuenta(int idTipo)
+        {
+            return HelperDao.ObtenerInstancia().DeleteById("SP_DELETE_TIPOS", idTipo, "@id_tipo");
+        }
+        //-------------------------------------------------------------------------------------------
     }
 
 }

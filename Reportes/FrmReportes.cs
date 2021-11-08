@@ -29,7 +29,7 @@ namespace Reportes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("SP_REPORTE_CUENTAS", cnn);
 
             cnn.Open();

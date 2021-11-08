@@ -131,7 +131,7 @@ EXEC SP_LOGIN_ADMINS 'FabriLoPresti', '112713', @resultado output
 SELECT @resultado
 -------------------------------------------------------
 
-CREATE PROCEDURE SP_GRAFICO_TORTA
+ALTER PROCEDURE SP_GRAFICO_TORTA
 AS
 BEGIN
 	SELECT
@@ -142,7 +142,7 @@ BEGIN
 	GROUP BY TC.nom_tipo
 END
 
-CREATE PROCEDURE SP_GRAFICO_CARTESIANO
+ALTER PROCEDURE SP_GRAFICO_CARTESIANO
 AS
 BEGIN
 	SELECT
@@ -153,7 +153,7 @@ BEGIN
 	GROUP BY YEAR(C.ultimo_mov), MONTH(C.ultimo_mov)
 END
 
-CREATE PROCEDURE SP_DASHBOARD
+Alter PROCEDURE SP_DASHBOARD
 AS
 	BEGIN
 		SELECT
@@ -265,6 +265,32 @@ AS
 			pass_admin = @passAdmin
 		WHERE id_admin = @idAdmin
 	END
+----------------------------------------------------------------------------------------
+
+
+---cambios 07/11 (update y delete de Tabla "tipo_cuentas")
+CREATE PROCEDURE SP_UPDATE_TIPOS
+@id_tipo int,
+@nom_tipo varchar(50)
+AS
+BEGIN
+	UPDATE tipo_cuentas
+	SET nom_tipo = @nom_tipo
+	WHERE id_tipo_cuenta = @id_tipo
+END
+----------------------------------------------------------
+CREATE PROCEDURE SP_DELETE_TIPOS
+@id_tipo int
+AS
+BEGIN
+	DELETE tipo_cuentas
+	WHERE id_tipo_cuenta = @id_tipo
+END
+----------------------------------------------------------
+
+
+
+
 
 select * from clientes
 select * from cuentas

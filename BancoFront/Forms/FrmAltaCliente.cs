@@ -27,7 +27,7 @@ namespace AppBanco.Forms
 
         Cliente oCliente = new Cliente();
 
-        public FrmAltaCliente(Action modo, int nro)//*
+        public FrmAltaCliente(Action modo, int nro)
         {
             InitializeComponent();
             this.modo = modo;
@@ -50,7 +50,7 @@ namespace AppBanco.Forms
             {
                 BloquearCampos();               
                 this.Text = "Visualizar Datos del Cliente";
-                await CargarClienteCuentaAync(this.nro);
+                await CargarClienteCuentaAsync(this.nro);
             }
             //------------------------------------------------------------
             if (modo.Equals(Action.EDITAR))
@@ -59,7 +59,7 @@ namespace AppBanco.Forms
                 dtpFechaAlta.Enabled = false;
                 txtCBU.Texts = GenerarCbu();
                 await CargarComboAsync();
-                await CargarClienteCuentaAync(this.nro);
+                await CargarClienteCuentaAsync(this.nro);
                 this.Text = "Modificar Datos del Cliente";
                 
             }
@@ -197,7 +197,7 @@ namespace AppBanco.Forms
             cboTipoCuenta.ValueMember = "IdTipo";        
         }
         //-------------------------------------------------------------------------------------------
-        private async Task CargarClienteCuentaAync(int nro)
+        private async Task CargarClienteCuentaAsync(int nro)
         {
             string url = "https://localhost:44317/api/Banco/" + nro.ToString();
             var resultado = await ClienteSingleton.GetInstance().GetAsync(url);

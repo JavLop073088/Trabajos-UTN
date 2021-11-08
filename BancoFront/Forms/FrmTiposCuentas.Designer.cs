@@ -41,6 +41,7 @@ namespace AppBanco.Forms
             this.txtTipoCuenta = new BancoFront.Forms.Componentes.RJTextBox();
             this.btnGuardar = new BancoFront.Forms.Componentes.RJButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new BancoFront.Forms.Componentes.RJButton();
             this.gboTiposCuentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoCuentas)).BeginInit();
             this.gboCargarTiposCuentas.SuspendLayout();
@@ -51,11 +52,11 @@ namespace AppBanco.Forms
             this.gboTiposCuentas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gboTiposCuentas.Controls.Add(this.dgvTipoCuentas);
             this.gboTiposCuentas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gboTiposCuentas.Location = new System.Drawing.Point(70, 281);
+            this.gboTiposCuentas.Location = new System.Drawing.Point(53, 288);
             this.gboTiposCuentas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gboTiposCuentas.Name = "gboTiposCuentas";
             this.gboTiposCuentas.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gboTiposCuentas.Size = new System.Drawing.Size(645, 250);
+            this.gboTiposCuentas.Size = new System.Drawing.Size(661, 271);
             this.gboTiposCuentas.TabIndex = 0;
             this.gboTiposCuentas.TabStop = false;
             this.gboTiposCuentas.Text = "Tipos de Cuentas";
@@ -70,14 +71,15 @@ namespace AppBanco.Forms
             this.colTipoCuenta,
             this.colActualizar,
             this.colEliminar});
-            this.dgvTipoCuentas.Location = new System.Drawing.Point(19, 44);
+            this.dgvTipoCuentas.Location = new System.Drawing.Point(27, 41);
             this.dgvTipoCuentas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvTipoCuentas.Name = "dgvTipoCuentas";
             this.dgvTipoCuentas.ReadOnly = true;
             this.dgvTipoCuentas.RowHeadersWidth = 51;
             this.dgvTipoCuentas.RowTemplate.Height = 24;
-            this.dgvTipoCuentas.Size = new System.Drawing.Size(605, 182);
+            this.dgvTipoCuentas.Size = new System.Drawing.Size(605, 209);
             this.dgvTipoCuentas.TabIndex = 0;
+            this.dgvTipoCuentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoCuentas_CellContentClick);
             // 
             // colNro
             // 
@@ -102,7 +104,8 @@ namespace AppBanco.Forms
             this.colActualizar.MinimumWidth = 6;
             this.colActualizar.Name = "colActualizar";
             this.colActualizar.ReadOnly = true;
-            this.colActualizar.Text = "Actualizar";
+            this.colActualizar.Text = "";
+            this.colActualizar.UseColumnTextForButtonValue = true;
             this.colActualizar.Width = 125;
             // 
             // colEliminar
@@ -111,7 +114,8 @@ namespace AppBanco.Forms
             this.colEliminar.MinimumWidth = 6;
             this.colEliminar.Name = "colEliminar";
             this.colEliminar.ReadOnly = true;
-            this.colEliminar.Text = "Eliminar";
+            this.colEliminar.Text = "";
+            this.colEliminar.UseColumnTextForButtonValue = true;
             this.colEliminar.Width = 125;
             // 
             // gboCargarTiposCuentas
@@ -121,11 +125,11 @@ namespace AppBanco.Forms
             this.gboCargarTiposCuentas.Controls.Add(this.btnGuardar);
             this.gboCargarTiposCuentas.Controls.Add(this.label1);
             this.gboCargarTiposCuentas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gboCargarTiposCuentas.Location = new System.Drawing.Point(70, 38);
+            this.gboCargarTiposCuentas.Location = new System.Drawing.Point(53, 45);
             this.gboCargarTiposCuentas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gboCargarTiposCuentas.Name = "gboCargarTiposCuentas";
             this.gboCargarTiposCuentas.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gboCargarTiposCuentas.Size = new System.Drawing.Size(645, 214);
+            this.gboCargarTiposCuentas.Size = new System.Drawing.Size(661, 214);
             this.gboCargarTiposCuentas.TabIndex = 1;
             this.gboCargarTiposCuentas.TabStop = false;
             this.gboCargarTiposCuentas.Text = "Cargar Tipos de Cuentas";
@@ -176,11 +180,33 @@ namespace AppBanco.Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo de Cuenta:";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnCancelar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancelar.BorderRadius = 0;
+            this.btnCancelar.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(287, 577);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(170, 50);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Salir";
+            this.btnCancelar.TextColor = System.Drawing.Color.White;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // FrmTiposCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 562);
+            this.ClientSize = new System.Drawing.Size(770, 640);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gboCargarTiposCuentas);
             this.Controls.Add(this.gboTiposCuentas);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -204,6 +230,7 @@ namespace AppBanco.Forms
         private System.Windows.Forms.Label label1;
         private RJButton btnGuardar;
         private RJTextBox txtTipoCuenta;
+        private RJButton btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipoCuenta;
         private System.Windows.Forms.DataGridViewButtonColumn colActualizar;

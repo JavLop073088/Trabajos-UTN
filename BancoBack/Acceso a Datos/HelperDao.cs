@@ -23,9 +23,7 @@ namespace AppBanco.Acceso_a_Datos
 
         private HelperDao()
         {
-
-            cadenaConexion = @"Data Source=LAPTOP-8EMNHC7Q;Initial Catalog=db_Banco;Integrated Security=True";
-            //cadenaConexion = Properties.Resources.strConexion; 
+            cadenaConexion = @"Data Source=LAPTOP-JAVI\SQLEXPRESS;Initial Catalog=db_Banco;Integrated Security=True";           
         }
 
         public static HelperDao ObtenerInstancia() 
@@ -184,7 +182,7 @@ namespace AppBanco.Acceso_a_Datos
             return oCliente;
         }
         //-------------------------------------------------------------------------------------------
-        public bool DeleteById(string storeName, int numeroClte)
+        public bool DeleteById(string storeName, int numeroClte, string param)
         {
             cnn = new SqlConnection(cadenaConexion);
             cmd = new SqlCommand();
@@ -194,7 +192,33 @@ namespace AppBanco.Acceso_a_Datos
                 cnn.Open();
                 cmd = new SqlCommand(storeName, cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nroClte", numeroClte);
+                cmd.Parameters.AddWithValue(param, numeroClte);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return rta;
+        }
+        //-------------------------------------------------------------------------------------------
+        public bool UpdateTipoCuentas(string storeName, TipoCuenta oTipo)
+        {
+            cnn = new SqlConnection(cadenaConexion);
+            cmd = new SqlCommand();
+            bool rta = true;
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(storeName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_tipo", oTipo.IdTipo);
+                cmd.Parameters.AddWithValue("@nom_tipo", oTipo.NombreTipo);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception)

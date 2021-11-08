@@ -36,9 +36,6 @@ namespace AppBanco.Forms
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,10 +129,7 @@ namespace AppBanco.Forms
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarToolStripMenuItem,
-            this.agregarToolStripMenuItem,
-            this.modificarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
+            this.consultarToolStripMenuItem});
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
             this.crearToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.crearToolStripMenuItem.Text = "Tabla Tipos de Cuenta";
@@ -143,27 +137,9 @@ namespace AppBanco.Forms
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
-            // 
-            // agregarToolStripMenuItem
-            // 
-            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
-            this.agregarToolStripMenuItem.Text = "Agregar";
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
-            this.modificarToolStripMenuItem.Text = "Modificar";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // reportesToolStripMenuItem
             // 
@@ -206,7 +182,7 @@ namespace AppBanco.Forms
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 28);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(320, 954);
             this.panelMenu.TabIndex = 1;
@@ -223,7 +199,7 @@ namespace AppBanco.Forms
             this.btnGraficos.IconSize = 32;
             this.btnGraficos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGraficos.Location = new System.Drawing.Point(0, 527);
-            this.btnGraficos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGraficos.Margin = new System.Windows.Forms.Padding(4);
             this.btnGraficos.Name = "btnGraficos";
             this.btnGraficos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGraficos.Size = new System.Drawing.Size(320, 74);
@@ -246,7 +222,7 @@ namespace AppBanco.Forms
             this.btnAjustesCuenta.IconSize = 32;
             this.btnAjustesCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAjustesCuenta.Location = new System.Drawing.Point(0, 453);
-            this.btnAjustesCuenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAjustesCuenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjustesCuenta.Name = "btnAjustesCuenta";
             this.btnAjustesCuenta.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnAjustesCuenta.Size = new System.Drawing.Size(320, 74);
@@ -269,7 +245,7 @@ namespace AppBanco.Forms
             this.btnCargarCliente.IconSize = 32;
             this.btnCargarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCargarCliente.Location = new System.Drawing.Point(0, 379);
-            this.btnCargarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCargarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnCargarCliente.Name = "btnCargarCliente";
             this.btnCargarCliente.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnCargarCliente.Size = new System.Drawing.Size(320, 74);
@@ -292,7 +268,7 @@ namespace AppBanco.Forms
             this.btnConsultarClientes.IconSize = 32;
             this.btnConsultarClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarClientes.Location = new System.Drawing.Point(0, 305);
-            this.btnConsultarClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConsultarClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnConsultarClientes.Name = "btnConsultarClientes";
             this.btnConsultarClientes.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnConsultarClientes.Size = new System.Drawing.Size(320, 74);
@@ -315,7 +291,7 @@ namespace AppBanco.Forms
             this.btnHome.IconSize = 32;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.Location = new System.Drawing.Point(0, 231);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnHome.Size = new System.Drawing.Size(320, 74);
@@ -331,7 +307,7 @@ namespace AppBanco.Forms
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(320, 231);
             this.panelLogo.TabIndex = 0;
@@ -341,7 +317,7 @@ namespace AppBanco.Forms
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::BancoFront.Properties.Resources.pngwing_com;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 231);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -357,7 +333,7 @@ namespace AppBanco.Forms
             this.panelTitulo.Controls.Add(this.iconFormActual);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(320, 28);
-            this.panelTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(864, 100);
             this.panelTitulo.TabIndex = 2;
@@ -384,7 +360,7 @@ namespace AppBanco.Forms
             this.iconPictureBox1.IconColor = System.Drawing.Color.DimGray;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.Location = new System.Drawing.Point(721, 29);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(32, 40);
             this.iconPictureBox1.TabIndex = 2;
@@ -409,7 +385,7 @@ namespace AppBanco.Forms
             this.iconFormActual.IconColor = System.Drawing.Color.MediumPurple;
             this.iconFormActual.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconFormActual.Location = new System.Drawing.Point(23, 29);
-            this.iconFormActual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconFormActual.Margin = new System.Windows.Forms.Padding(4);
             this.iconFormActual.Name = "iconFormActual";
             this.iconFormActual.Size = new System.Drawing.Size(32, 40);
             this.iconFormActual.TabIndex = 0;
@@ -419,7 +395,7 @@ namespace AppBanco.Forms
             // 
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(320, 128);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(864, 854);
             this.panelDesktop.TabIndex = 3;
@@ -605,7 +581,7 @@ namespace AppBanco.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AppBanco";
@@ -632,9 +608,6 @@ namespace AppBanco.Forms
         private System.Windows.Forms.ToolStripMenuItem soporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transaccionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;

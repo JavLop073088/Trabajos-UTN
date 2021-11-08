@@ -107,6 +107,18 @@ namespace BancoWebAPI.Controllers
 
             return BadRequest("Se requiere nombre de Cuenta");
         }
+        //-----------------------------------------------------
+        [HttpPost("modiftipo")]
+        public IActionResult PostModifTipo(TipoCuenta oTipo)
+        {
+            if (oTipo != null)
+            {
+                bool result = app.ActualizarTipoCuenta(oTipo);
+                return Ok(result);
+            }
+
+            return BadRequest("Se requiere nombre de Cuenta");
+        }
         //-----------------------------------------------------       
         [HttpPost("consultaparam")]
         public IActionResult PostConsulta(List<Parametro> filtros)
@@ -141,8 +153,15 @@ namespace BancoWebAPI.Controllers
                 return BadRequest("Id es requerido!");
             return Ok(app.RegistrarBajaCliente(numeroClte));
         }
+        //-----------------------------------------------------   
+        [HttpDelete("borrar/{idTipo}")]
+        public IActionResult DeleteTipo(int idTipo)
+        {
+            if (idTipo == 0)
+                return BadRequest("Id es requerido!");
+            return Ok(app.BorrarTipoCuenta(idTipo));
+        }
 
 
-        
     }
 }

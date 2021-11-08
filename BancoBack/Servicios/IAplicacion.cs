@@ -38,6 +38,10 @@ namespace BancoBack.Servicios
 
         public bool ActualizarAdmin(Administrador oAdministrador);
 
+        public bool ActualizarTipoCuenta(TipoCuenta oTipo);
+
+        public bool BorrarTipoCuenta(int idTipo);
+
     }
 
 
