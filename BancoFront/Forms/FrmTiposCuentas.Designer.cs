@@ -32,6 +32,7 @@ namespace AppBanco.Forms
         private void InitializeComponent()
         {
             this.gboTiposCuentas = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new BancoFront.Forms.Componentes.RJButton();
             this.dgvTipoCuentas = new System.Windows.Forms.DataGridView();
             this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +42,6 @@ namespace AppBanco.Forms
             this.txtTipoCuenta = new BancoFront.Forms.Componentes.RJTextBox();
             this.btnGuardar = new BancoFront.Forms.Componentes.RJButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar = new BancoFront.Forms.Componentes.RJButton();
             this.gboTiposCuentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoCuentas)).BeginInit();
             this.gboCargarTiposCuentas.SuspendLayout();
@@ -52,7 +52,7 @@ namespace AppBanco.Forms
             this.gboTiposCuentas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gboTiposCuentas.Controls.Add(this.dgvTipoCuentas);
             this.gboTiposCuentas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gboTiposCuentas.Location = new System.Drawing.Point(53, 288);
+            this.gboTiposCuentas.Location = new System.Drawing.Point(53, 291);
             this.gboTiposCuentas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gboTiposCuentas.Name = "gboTiposCuentas";
             this.gboTiposCuentas.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -60,6 +60,27 @@ namespace AppBanco.Forms
             this.gboTiposCuentas.TabIndex = 0;
             this.gboTiposCuentas.TabStop = false;
             this.gboTiposCuentas.Text = "Tipos de Cuentas";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnCancelar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancelar.BorderRadius = 0;
+            this.btnCancelar.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(298, 579);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(170, 50);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Salir";
+            this.btnCancelar.TextColor = System.Drawing.Color.White;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dgvTipoCuentas
             // 
@@ -125,7 +146,7 @@ namespace AppBanco.Forms
             this.gboCargarTiposCuentas.Controls.Add(this.btnGuardar);
             this.gboCargarTiposCuentas.Controls.Add(this.label1);
             this.gboCargarTiposCuentas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gboCargarTiposCuentas.Location = new System.Drawing.Point(53, 45);
+            this.gboCargarTiposCuentas.Location = new System.Drawing.Point(53, 50);
             this.gboCargarTiposCuentas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gboCargarTiposCuentas.Name = "gboCargarTiposCuentas";
             this.gboCargarTiposCuentas.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -180,37 +201,20 @@ namespace AppBanco.Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo de Cuenta:";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnCancelar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancelar.BorderRadius = 0;
-            this.btnCancelar.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(287, 577);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(170, 50);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Salir";
-            this.btnCancelar.TextColor = System.Drawing.Color.White;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // FrmTiposCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 640);
+            this.ClientSize = new System.Drawing.Size(770, 659);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gboCargarTiposCuentas);
             this.Controls.Add(this.gboTiposCuentas);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(788, 706);
+            this.MinimumSize = new System.Drawing.Size(788, 706);
             this.Name = "FrmTiposCuentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tipos de Cuentas";
             this.Load += new System.EventHandler(this.FrmTiposCuentas_Load);
             this.gboTiposCuentas.ResumeLayout(false);
