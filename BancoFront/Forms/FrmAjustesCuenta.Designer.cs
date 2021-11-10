@@ -51,7 +51,8 @@ namespace AppBanco.Forms
             this.gboCuenta.Controls.Add(this.txtUsername);
             this.gboCuenta.Controls.Add(this.label2);
             this.gboCuenta.Controls.Add(this.label1);
-            this.gboCuenta.Location = new System.Drawing.Point(227, 79);
+            this.gboCuenta.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gboCuenta.Location = new System.Drawing.Point(180, 76);
             this.gboCuenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gboCuenta.Name = "gboCuenta";
             this.gboCuenta.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -69,6 +70,7 @@ namespace AppBanco.Forms
             this.btnConfirmar.BorderSize = 0;
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
             this.btnConfirmar.Location = new System.Drawing.Point(32, 344);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -103,7 +105,7 @@ namespace AppBanco.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(29, 239);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 20);
+            this.label3.Size = new System.Drawing.Size(199, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Confirmar contraseña:";
             // 
@@ -150,7 +152,7 @@ namespace AppBanco.Forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(29, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 20);
+            this.label2.Size = new System.Drawing.Size(112, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña:";
             // 
@@ -159,7 +161,7 @@ namespace AppBanco.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(29, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.Size = new System.Drawing.Size(81, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario:";
             // 
@@ -167,7 +169,7 @@ namespace AppBanco.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 562);
+            this.ClientSize = new System.Drawing.Size(705, 562);
             this.Controls.Add(this.gboCuenta);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmAjustesCuenta";

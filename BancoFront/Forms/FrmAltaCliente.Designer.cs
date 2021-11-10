@@ -241,7 +241,7 @@ namespace AppBanco.Forms
             this.dtpFechaAlta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFechaAlta.MinimumSize = new System.Drawing.Size(4, 35);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
-            this.dtpFechaAlta.Size = new System.Drawing.Size(274, 35);
+            this.dtpFechaAlta.Size = new System.Drawing.Size(304, 35);
             this.dtpFechaAlta.SkinColor = System.Drawing.SystemColors.Control;
             this.dtpFechaAlta.TabIndex = 20;
             this.dtpFechaAlta.TextColor = System.Drawing.Color.Black;

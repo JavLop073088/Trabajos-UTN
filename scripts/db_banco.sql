@@ -292,7 +292,18 @@ BEGIN
 	WHERE id_tipo_cuenta = @id_tipo
 END
 ----------------------------------------------------------
-
+ALTER PROCEDURE [dbo].[SP_REGISTRAR_BAJA]
+	@nroClte int
+AS
+BEGIN
+	UPDATE clientes 
+	SET fecha_baja = GETDATE()
+	WHERE nro_cliente = @nroClte;
+	
+	UPDATE cuentas
+	SET saldo = 0
+	WHERE nro_cliente = @nroClte
+END
 
 
 

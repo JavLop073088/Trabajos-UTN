@@ -91,7 +91,7 @@ namespace AppBanco.Forms
                     {
                         MessageBox.Show("El Cliente ha sido dado de Baja",
                                         "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.btnConsultar_Click(null, null);
+                        //this.btnConsultar_Click(null, null);
                     }
                     else
                         MessageBox.Show("La Baja de Cliente no pudo realizarse",
